@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system — keep intact; do not replace with Tailwind tokens */
+:root {
+  --rose-gold: #c9a99a;
+  --rose-light: #e8d5cc;
+  --rose-pale: #f5ede8;
+  --rose-deep: #a07060;
+  --cream: #faf6f3;
+  --dark: #2a1f1a;
+  --text: #3d2b22;
+  --text-light: #7a5c50;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-montserrat), sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Brand signature — holo-shift must stay identical */
+.holo {
+  background: linear-gradient(
+    135deg,
+    #e8d0cc 0%,
+    #d4c4d4 15%,
+    #c8b8d0 28%,
+    #d4bcc4 40%,
+    #e0c8c0 52%,
+    #ccc0d4 65%,
+    #d8c4cc 78%,
+    #e4d0c8 90%,
+    #d0bcc8 100%
+  );
+  background-size: 400% 400%;
+  animation: holo-shift 8s ease infinite;
+}
+
+@keyframes holo-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 1s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out both;
+}
+
+.animate-ticker {
+  animation: ticker 28s linear infinite;
+}
+
+/* Nav: hamburger open state + mobile menu open + sticky CTA visibility */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+.mobile-menu {
+  display: none;
+}
+.mobile-menu.open {
+  display: flex;
+}
+.mobile-sticky-cta {
+  display: none;
+}
+@media (max-width: 900px) {
+  .mobile-sticky-cta {
+    display: block;
+  }
+}
