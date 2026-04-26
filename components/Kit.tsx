@@ -32,7 +32,7 @@ export default function Kit() {
               </li>
             ))}
           </ul>
-          <Link href="#book" className="btn-primary inline-flex min-h-12 items-center justify-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[0.58rem] uppercase tracking-[0.2em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
+          <Link href="/appointments" className="btn-primary inline-flex min-h-12 items-center justify-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[0.58rem] uppercase tracking-[0.2em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
             Get Your Kit
           </Link>
         </div>

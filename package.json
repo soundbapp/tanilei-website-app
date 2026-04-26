@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev -p 3001 --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "extract-images": "node scripts/extract-images.js"
+    "extract-images": "node scripts/extract-images.js",
+    "test-email": "node --env-file=.env.local ./scripts/send-test-email.mjs",
+    "migrate:002": "node --env-file=.env.local ./scripts/migrate-002-psql.cjs"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
     "next": "^15.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-day-picker": "^9.14.0",
+    "react-dom": "^19.0.0",
+    "resend": "^6.9.2"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

@@ -49,7 +49,7 @@ export default function Footer() {
       </footer>
       <div className="footer-bottom flex flex-col items-center justify-between gap-1.5 bg-[#1a100d] px-5 py-4 md:flex-row md:px-12 md:py-[18px]">
         <p className="text-[0.46rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.22)]">
-          © 2024 Tani/Lei · All Rights Reserved
+          © 2026 Tani/Lei · All Rights Reserved
         </p>
         <p className="hidden text-[0.46rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.22)] md:block">
           Dallas, TX · tanilei.com

@@ -5,7 +5,7 @@ export default function Hero() {
     <section style={s.hero}>
       {/* Left — content */}
       <div style={s.heroLeft}>
-        <p style={s.eyebrow}>Dallas, Texas · Est. 2024</p>
+        <p style={s.eyebrow}>Dallas, Texas · Est. 2026</p>
         <h1 style={s.script}>Tani/Lei</h1>
         <p style={s.serif}>The Beauty Experience</p>
         <p style={s.desc}>

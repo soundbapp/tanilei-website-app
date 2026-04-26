@@ -38,7 +38,7 @@ export default function About() {
             &ldquo;Beauty is not a service. It is an experience you carry with you long after you leave the chair.&rdquo;
           </p>
           <p className="mb-9 text-[0.72rem] font-light leading-[2] text-[var(--text-light)]">
-            Tani Abdu built her craft alongside industry icons — including years as assistant to Aaron Grenier at IGK — before bringing that level of excellence to Dallas. With expertise across hair, nails, lashes, brows, and skin, she&apos;s not a stylist. She&apos;s your beauty partner.
+            Tani Abdu built her craft alongside industry icons — including years as assistant to Aaron Grenia at IGK — before bringing that level of excellence to Dallas. With expertise across hair, nails, lashes, brows, and skin, she&apos;s not a stylist. She&apos;s your beauty partner.
           </p>
           <div className="cred-row mb-9 flex flex-wrap gap-6 md:gap-8">
             <div className="cred min-w-[75px] border-t border-[var(--rose-gold)] pt-3">
@@ -46,7 +46,7 @@ export default function About() {
               <p className="cred-label text-[0.48rem] uppercase tracking-[0.15em] leading-[1.6] text-[var(--text-light)]">
                 Trained Under
                 <br />
-                Aaron Grenier
+                Aaron Grenia
               </p>
             </div>
             <div className="cred min-w-[75px] border-t border-[var(--rose-gold)] pt-3">
@@ -66,7 +66,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          <Link href="#book" className="btn-primary inline-flex min-h-12 items-center justify-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[0.58rem] uppercase tracking-[0.2em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
+          <Link href="/appointments" className="btn-primary inline-flex min-h-12 items-center justify-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[0.58rem] uppercase tracking-[0.2em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
             Meet Tani
           </Link>
         </div>

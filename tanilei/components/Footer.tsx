@@ -47,7 +47,7 @@ export default function Footer() {
       </footer>
 
       <div style={s.footerBottom}>
-        <p style={s.bottomText}>© 2024 Tani/Lei · All Rights Reserved</p>
+        <p style={s.bottomText}>© 2026 Tani/Lei · All Rights Reserved</p>
         <p style={s.bottomText}>Dallas, TX · tanilei.com</p>
       </div>
 

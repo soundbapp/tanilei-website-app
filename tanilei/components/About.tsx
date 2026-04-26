@@ -32,13 +32,13 @@ export default function About() {
             "Beauty is not a service. It is an experience you carry with you long after you leave the chair."
           </p>
           <p style={s.body}>
-            Tani Abdu built her craft alongside industry icons — including years as assistant to Aaron Grenier
+            Tani Abdu built her craft alongside industry icons — including years as assistant to Aaron Grenia
             at IGK — before bringing that level of excellence to Dallas. With expertise across hair, nails,
             lashes, brows, and skin, she's not a stylist. She's your beauty partner.
           </p>
           <div style={s.credRow}>
             {[
-              { num: 'IGK',  label: 'Trained Under\nAaron Grenier' },
+              { num: 'IGK',  label: 'Trained Under\nAaron Grenia' },
               { num: '10+',  label: 'Years of\nExperience' },
               { num: '5★',   label: 'Client\nRetention' },
             ].map(c => (
