@@ -32,7 +32,9 @@ export default function AppointmentsPage() {
             </h1>
             <div className="section-line mx-auto h-px w-[50px] bg-[var(--rose-gold)]" />
             <p className="mx-auto mt-6 max-w-lg text-[0.72rem] font-light leading-[2] text-[var(--text-light)]">
-              Pick a day and time below. We&apos;ll email you a confirmation.{" "}
+              Tani&apos;s calendar is below. Rose days are already booked — she
+              is not available until November. Open days can be reserved here;
+              we&apos;ll email a confirmation.{" "}
               <Link
                 href="/"
                 className="text-[var(--rose-deep)] no-underline hover:underline"

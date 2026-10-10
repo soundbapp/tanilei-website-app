@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { getDb, isDatabaseConfigured } from "@/lib/db";
 import { isValidSlotWindow } from "@/lib/availability";
 import { getFreeSlotsForDate } from "@/lib/appointments-queries";
+import { getCalendarState } from "@/lib/calendar-store";
+import { isYmdOpenForBooking } from "@/lib/calendar";
 import { sendAppointmentNotifications } from "@/lib/email";
 import { formatInTimeZone } from "date-fns-tz";
 import { BUSINESS_TZ } from "@/lib/availability";
@@ -65,7 +67,14 @@ export async function POST(request: Request) {
   }
 
   const ymd = formatInTimeZone(startsAt, BUSINESS_TZ, "yyyy-MM-dd");
-  const free = await getFreeSlotsForDate(ymd, now);
+  const calendar = await getCalendarState();
+  if (!isYmdOpenForBooking(ymd, calendar, now)) {
+    return NextResponse.json(
+      { error: "Tani is not available on that day. Please pick another date." },
+      { status: 400 }
+    );
+  }
+  const free = await getFreeSlotsForDate(ymd, now, calendar);
   if (!free.some((s) => s.start === startsAt.toISOString())) {
     return NextResponse.json(
       { error: "That slot was just taken. Please pick another time." },

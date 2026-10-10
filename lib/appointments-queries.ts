@@ -6,6 +6,8 @@ import {
   BUSINESS_TZ,
 } from "./availability";
 import { toDate } from "date-fns-tz";
+import { isYmdOpenForBooking, type CalendarState } from "./calendar";
+import { getCalendarState } from "./calendar-store";
 
 type Row = { starts_at: string };
 
@@ -33,20 +35,25 @@ export async function fetchBookedStartsBetween(
 export async function getAvailableDatesInRange(
   fromYmd: string,
   toYmd: string,
-  now: Date
+  now: Date,
+  calendar?: CalendarState
 ): Promise<string[]> {
   const days = dayRangeToCheck(fromYmd, toYmd, now);
   if (days.length === 0) return [];
-  if (!isDatabaseConfigured()) {
-    return [];
-  }
-  const first = toDate(`${days[0]!}T00:00:00.000`, { timeZone: BUSINESS_TZ });
-  const lastY = days[days.length - 1]!;
-  const afterLast = toDate(`${lastY}T23:59:59.999`, { timeZone: BUSINESS_TZ });
-  const endBoundary = new Date(afterLast.getTime() + 1);
-  const booked = await fetchBookedStartsBetween(first, endBoundary);
+  const state = calendar ?? (await getCalendarState());
+  const booked = isDatabaseConfigured()
+    ? await fetchBookedStartsBetween(
+        toDate(`${days[0]!}T00:00:00.000`, { timeZone: BUSINESS_TZ }),
+        new Date(
+          toDate(`${days[days.length - 1]!}T23:59:59.999`, {
+            timeZone: BUSINESS_TZ,
+          }).getTime() + 1
+        )
+      )
+    : new Set<number>();
   const available: string[] = [];
   for (const ymd of days) {
+    if (!isYmdOpenForBooking(ymd, state, now)) continue;
     const slots = slotInstantsForDay(ymd);
     const hasFree = slots.some((s) => {
       if (booked.has(s.getTime())) return false;
@@ -65,19 +72,21 @@ export type SlotOption = { start: string; end: string; label: string };
 
 export async function getFreeSlotsForDate(
   ymd: string,
-  now: Date
+  now: Date,
+  calendar?: CalendarState
 ): Promise<SlotOption[]> {
   const p = parseYmd(ymd);
   if (!p) return [];
   const instants = slotInstantsForDay(p);
   if (instants.length === 0) return [];
-  if (!isDatabaseConfigured()) {
-    return [];
-  }
+  const state = calendar ?? (await getCalendarState());
+  if (!isYmdOpenForBooking(p, state, now)) return [];
   const dayStart = toDate(`${p}T00:00:00.000`, { timeZone: BUSINESS_TZ });
   const dayEnd = toDate(`${p}T23:59:59.999`, { timeZone: BUSINESS_TZ });
   const endEx = new Date(dayEnd.getTime() + 1);
-  const booked = await fetchBookedStartsBetween(dayStart, endEx);
+  const booked = isDatabaseConfigured()
+    ? await fetchBookedStartsBetween(dayStart, endEx)
+    : new Set<number>();
   const out: SlotOption[] = [];
   for (const start of instants) {
     if (booked.has(start.getTime())) continue;

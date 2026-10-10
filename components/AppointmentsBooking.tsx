@@ -1,25 +1,16 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/style.css";
-import { format, startOfMonth, endOfMonth } from "date-fns";
+import { useState, useCallback } from "react";
 import { formatInTimeZone } from "date-fns-tz";
 import Link from "next/link";
+import GuestCalendar, { type GuestCalendarMeta } from "@/components/GuestCalendar";
 
 const NY = "America/New_York";
 
 type Slot = { start: string; end: string; label: string };
 
-function todayYmd(): string {
-  return formatInTimeZone(new Date(), NY, "yyyy-MM-dd");
-}
-
 export default function AppointmentsBooking() {
-  const [configError, setConfigError] = useState(false);
-  const [month, setMonth] = useState(() => new Date());
-  const [availableSet, setAvailableSet] = useState<Set<string>>(new Set());
-  const [loadingMonth, setLoadingMonth] = useState(true);
+  const [meta, setMeta] = useState<GuestCalendarMeta | null>(null);
   const [selected, setSelected] = useState<Date | undefined>(undefined);
   const [slots, setSlots] = useState<Slot[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
@@ -32,90 +23,34 @@ export default function AppointmentsBooking() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const loadMonth = useCallback(async (m: Date) => {
-    setLoadingMonth(true);
-    setError(null);
-    const from = format(startOfMonth(m), "yyyy-MM-dd");
-    const to = format(endOfMonth(m), "yyyy-MM-dd");
-    try {
-      const res = await fetch(
-        `/api/appointments/availability?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`
-      );
-      if (res.status === 503) {
-        setConfigError(true);
-        setAvailableSet(new Set());
-        return;
-      }
-      const data = await res.json();
-      if (!res.ok) {
-        setError(data.error || "Could not load calendar.");
-        setAvailableSet(new Set());
-        return;
-      }
-      setConfigError(false);
-      setAvailableSet(new Set(data.availableDates as string[]));
-    } catch {
-      setError("Could not load calendar.");
-      setAvailableSet(new Set());
-    } finally {
-      setLoadingMonth(false);
-    }
+  const onMeta = useCallback((next: GuestCalendarMeta) => {
+    setMeta(next);
   }, []);
 
-  useEffect(() => {
-    loadMonth(month);
-  }, [month, loadMonth]);
-
-  const disabledDays = useCallback(
-    (d: Date) => {
-      const ymd = formatInTimeZone(d, NY, "yyyy-MM-dd");
-      if (ymd < todayYmd()) return true;
-      if (loadingMonth) return true;
-      if (availableSet.size === 0) return true;
-      return !availableSet.has(ymd);
-    },
-    [availableSet, loadingMonth]
-  );
-
-  useEffect(() => {
-    if (!selected) {
-      setSlots([]);
-      setSelectedSlot(null);
-      return;
-    }
-    const ymd = formatInTimeZone(selected, NY, "yyyy-MM-dd");
-    let cancelled = false;
-    (async () => {
-      setLoadingSlots(true);
-      setSelectedSlot(null);
-      setError(null);
-      try {
-        const res = await fetch(
-          `/api/appointments/availability?date=${encodeURIComponent(ymd)}`
-        );
+  const onSelectDay = useCallback((day: Date | undefined) => {
+    setSelected(day);
+    setSelectedSlot(null);
+    setSlots([]);
+    setError(null);
+    if (!day) return;
+    const ymd = formatInTimeZone(day, NY, "yyyy-MM-dd");
+    setLoadingSlots(true);
+    fetch(`/api/appointments/availability?date=${encodeURIComponent(ymd)}`)
+      .then(async (res) => {
         const data = await res.json();
-        if (cancelled) return;
-        if (res.status === 503) {
-          setConfigError(true);
-          setSlots([]);
-          return;
-        }
         if (!res.ok) {
           setError(data.error || "Could not load times.");
           setSlots([]);
           return;
         }
         setSlots(data.slots || []);
-      } catch {
-        if (!cancelled) setError("Could not load times.");
-      } finally {
-        if (!cancelled) setLoadingSlots(false);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [selected]);
+      })
+      .catch(() => {
+        setError("Could not load times.");
+        setSlots([]);
+      })
+      .finally(() => setLoadingSlots(false));
+  }, []);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -137,20 +72,15 @@ export default function AppointmentsBooking() {
       });
       const data = await res.json().catch(() => ({}));
       if (res.status === 409) {
+        setError(data.error || "That time was just taken. Please choose another.");
+        if (selected) onSelectDay(selected);
+        return;
+      }
+      if (res.status === 503) {
         setError(
-          data.error || "That time was just taken. Please choose another."
+          data.error ||
+            "Online hold isn’t configured yet. Call or email to keep this time."
         );
-        if (selected) {
-          const ymd = formatInTimeZone(selected, NY, "yyyy-MM-dd");
-          const r = await fetch(
-            `/api/appointments/availability?date=${encodeURIComponent(ymd)}`
-          );
-          if (r.ok) {
-            const d = await r.json();
-            setSlots(d.slots || []);
-          }
-        }
-        loadMonth(month);
         return;
       }
       if (!res.ok) {
@@ -164,45 +94,6 @@ export default function AppointmentsBooking() {
       setSubmitting(false);
     }
   };
-
-  const monthCaption = useMemo(
-    () => format(month, "MMMM yyyy"),
-    [month]
-  );
-
-  if (configError) {
-    return (
-      <div className="mx-auto max-w-lg text-center text-[0.8rem] leading-[1.8] text-[var(--text)]">
-        <p className="mb-4 text-[var(--rose-deep)]">
-          Online booking is not available right now. Please call or email us
-          to schedule.
-        </p>
-        <p>
-          <a
-            href="tel:2025108945"
-            className="text-[var(--rose-deep)] no-underline"
-          >
-            202-510-8945
-          </a>
-          {" · "}
-          <a
-            href="mailto:hello@tanilei.com"
-            className="text-[var(--rose-deep)] no-underline"
-          >
-            hello@tanilei.com
-          </a>
-        </p>
-        <p className="mt-6">
-          <Link
-            href="/"
-            className="text-[0.58rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
-          >
-            ← Home
-          </Link>
-        </p>
-      </div>
-    );
-  }
 
   if (done) {
     return (
@@ -223,27 +114,17 @@ export default function AppointmentsBooking() {
     );
   }
 
+  const bookingReady = meta?.canConfirmBooking !== false;
+
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-10 md:flex-row md:items-start md:gap-12">
+    <div className="mx-auto flex w-full max-w-4xl flex-col gap-10 md:flex-row md:items-start md:gap-12">
       <div className="flex flex-1 flex-col items-center">
-        <p className="mb-2 text-center text-[0.5rem] uppercase tracking-[0.24em] text-[var(--text-light)]">
-          {loadingMonth ? "Loading…" : monthCaption}
-        </p>
-        <div className="rdp-override [&_.rdp-root]:!font-sans [&_.rdp-day_button]:!rounded-none [&_.rdp-day]:!text-[0.7rem] [&_.rdp-weekday]:!text-[0.5rem] [&_.rdp-weekday]:!text-[var(--text-light)] [&_.rdp-selected]:!bg-[var(--dark)] [&_.rdp-selected]:!text-white [&_.rdp-today]:!font-semibold">
-          <DayPicker
-            mode="single"
-            month={month}
-            onMonthChange={setMonth}
-            selected={selected}
-            onSelect={setSelected}
-            disabled={disabledDays}
-            showOutsideDays
-            className="!p-0"
-          />
-        </div>
-        <p className="mt-3 text-center text-[0.5rem] tracking-wide text-[var(--text-light)]">
-          Mon–Fri, 9am–5pm Eastern · 30 min visits
-        </p>
+        <GuestCalendar
+          selected={selected}
+          onSelect={onSelectDay}
+          interactive
+          onMeta={onMeta}
+        />
       </div>
 
       <div className="min-h-[200px] flex-1">
@@ -252,9 +133,24 @@ export default function AppointmentsBooking() {
             {error}
           </p>
         )}
+        {!bookingReady && (
+          <p className="mb-4 text-[0.68rem] leading-[1.8] text-[var(--text-light)]">
+            The calendar is live so you can see Tani&apos;s openings. To hold a
+            time, call{" "}
+            <a href="tel:2025108945" className="text-[var(--rose-deep)]">
+              202-510-8945
+            </a>{" "}
+            or email{" "}
+            <a href="mailto:hello@tanilei.com" className="text-[var(--rose-deep)]">
+              hello@tanilei.com
+            </a>
+            .
+          </p>
+        )}
         {!selected ? (
           <p className="text-[0.72rem] leading-[1.8] text-[var(--text-light)]">
-            Select a day to see open times.
+            Open days are outlined. Rose days are already booked. Select an open
+            day to see times.
           </p>
         ) : loadingSlots ? (
           <p className="text-[0.7rem] text-[var(--text-light)]">Loading times…</p>

@@ -9,7 +9,9 @@
     "lint": "next lint",
     "extract-images": "node scripts/extract-images.js",
     "test-email": "node --env-file=.env.local ./scripts/send-test-email.mjs",
-    "migrate:002": "node --env-file=.env.local ./scripts/migrate-002-psql.cjs"
+    "migrate:002": "node --env-file=.env.local ./scripts/migrate-002-psql.cjs",
+    "migrate:003": "node --env-file=.env.local ./scripts/migrate-003-psql.cjs",
+    "test": "npx --yes tsx --test lib/calendar.test.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",

@@ -1,21 +1,24 @@
 import { NextResponse } from "next/server";
-import { isDatabaseConfigured } from "@/lib/db";
 import {
   getAvailableDatesInRange,
   getFreeSlotsForDate,
 } from "@/lib/appointments-queries";
 import { parseYmd } from "@/lib/availability";
+import {
+  classifyYmd,
+  eachYmdInclusive,
+  formatLongYmd,
+  nextAvailableYmd,
+} from "@/lib/calendar";
+import { getCalendarState } from "@/lib/calendar-store";
+import { isDatabaseConfigured } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
-  if (!isDatabaseConfigured()) {
-    return NextResponse.json(
-      { error: "Booking is not configured. Set DATABASE_URL." },
-      { status: 503 }
-    );
-  }
-
+  const now = new Date();
+  const calendar = await getCalendarState();
+  const nextOpen = nextAvailableYmd(calendar, now);
   const { searchParams } = new URL(request.url);
   const date = searchParams.get("date");
 
@@ -24,8 +27,15 @@ export async function GET(request: Request) {
     if (!p) {
       return NextResponse.json({ error: "Invalid date" }, { status: 400 });
     }
-    const slots = await getFreeSlotsForDate(p, new Date());
-    return NextResponse.json({ slots, timeZone: "America/New_York" });
+    const slots = await getFreeSlotsForDate(p, now, calendar);
+    return NextResponse.json({
+      slots,
+      timeZone: "America/New_York",
+      unavailableUntil: calendar.unavailableUntil,
+      nextAvailableDate: nextOpen,
+      nextAvailableLabel: nextOpen ? formatLongYmd(nextOpen) : null,
+      canConfirmBooking: isDatabaseConfigured(),
+    });
   }
 
   const from = searchParams.get("from");
@@ -42,6 +52,22 @@ export async function GET(request: Request) {
       { status: 400 }
     );
   }
-  const availableDates = await getAvailableDatesInRange(from, to, new Date());
-  return NextResponse.json({ availableDates, timeZone: "America/New_York" });
+  const availableDates = await getAvailableDatesInRange(from, to, now, calendar);
+  const availableSet = new Set(availableDates);
+  const bookedDates: string[] = [];
+  for (const ymd of eachYmdInclusive(from, to)) {
+    const kind = classifyYmd(ymd, calendar, now);
+    if (kind === "booked") bookedDates.push(ymd);
+    else if (kind === "available" && !availableSet.has(ymd)) bookedDates.push(ymd);
+  }
+
+  return NextResponse.json({
+    availableDates,
+    bookedDates,
+    unavailableUntil: calendar.unavailableUntil,
+    nextAvailableDate: nextOpen,
+    nextAvailableLabel: nextOpen ? formatLongYmd(nextOpen) : null,
+    timeZone: "America/New_York",
+    canConfirmBooking: isDatabaseConfigured(),
+  });
 }

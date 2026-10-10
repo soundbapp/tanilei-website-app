@@ -51,8 +51,11 @@ export default function Footer() {
         <p className="text-[0.46rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.22)]">
           © 2026 Tani/Lei · All Rights Reserved
         </p>
-        <p className="hidden text-[0.46rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.22)] md:block">
-          Dallas, TX · tanilei.com
+        <p className="text-[0.46rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.22)]">
+          Dallas, TX ·{" "}
+          <Link href="/tani" className="text-[rgba(201,169,154,0.55)] no-underline hover:text-[var(--rose-light)]">
+            Staff
+          </Link>
         </p>
       </div>
     </>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import GuestCalendar from "@/components/GuestCalendar";
 
 export default function Booking() {
   const [email, setEmail] = useState("");
@@ -51,15 +52,19 @@ export default function Booking() {
         </h2>
         <div className="section-line mx-auto mt-4 h-px w-[50px] bg-[var(--rose-gold)]" />
         <p className="booking-sub mx-auto mb-4 mt-7 max-w-[440px] text-[0.72rem] font-light leading-[2] text-[var(--text-light)]">
-          Join the Tani/Lei family. Enter your email to receive early access, priority booking, and your complimentary beauty consultation.{" "}
+          Join the Tani/Lei family. See Tani&apos;s live calendar below — she is
+          booked until a month from today, and not available until November.{" "}
           <Link
             href="/appointments"
             className="whitespace-nowrap text-[var(--rose-deep)] no-underline hover:underline"
           >
             Schedule a visit
           </Link>{" "}
-          with the calendar.
+          when a day opens.
         </p>
+        <div className="mx-auto mb-10 mt-8 max-w-[720px] text-left">
+          <GuestCalendar interactive={false} />
+        </div>
         {submitted ? (
           <p className="text-[var(--rose-deep)] font-medium">
             Thank you! We&apos;ll be in touch soon.

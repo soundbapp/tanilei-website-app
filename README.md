@@ -28,6 +28,22 @@ npm run build
 npm start
 ```
 
+## Booking calendar
+
+Guests see Tani's calendar on the homepage booking section and at `/appointments`.
+Days she is fully booked stay visible (rose, struck through). The calendar starts
+with Tani booked until **November 10, 2026** (one month from October 10, 2026).
+
+Tani can change that at `/tani` (also linked as **Staff** in the footer):
+
+1. Set `TANI_ADMIN_PASSWORD` and `TANI_SESSION_SECRET` in the environment.
+2. Sign in at `/tani/login`.
+3. Move the “booked until” date, or click weekdays to open/close them.
+
+If Postgres is configured (`DATABASE_URL`), settings are stored there (apply
+`db/migrations/003_calendar.sql` or `npm run migrate:003`). Otherwise they are
+saved to `data/calendar-settings.json` (local/dev).
+
 ## What's included
 
 | File | Purpose |
