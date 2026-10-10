@@ -38,7 +38,7 @@ Tani can change that at `/tani` (also linked as **Staff** in the footer):
 
 1. Set `TANI_ADMIN_PASSWORD` and `TANI_SESSION_SECRET` in the environment.
 2. Sign in at `/tani/login`.
-3. Move the “booked until” date, or click weekdays to open/close them.
+3. Move the “booked until” date, or click any day (including Saturday and Sunday) to open/close them.
 
 If Postgres is configured (`DATABASE_URL`), settings are stored there (apply
 `db/migrations/003_calendar.sql` or `npm run migrate:003`). Otherwise they are

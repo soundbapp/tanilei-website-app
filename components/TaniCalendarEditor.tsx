@@ -107,8 +107,6 @@ export default function TaniCalendarEditor() {
     const ymd = ymdOf(day);
     if (ymd < todayYmd()) return;
     const kind = classifyYmd(ymd, state, new Date());
-    if (kind === "weekend") return;
-
     if (kind === "available") {
       if (ymd < unavailableUntil) {
         void savePatch({ clearOverrides: [ymd] });
@@ -189,8 +187,8 @@ export default function TaniCalendarEditor() {
       </label>
 
       <p className="mb-3 text-[0.65rem] leading-[1.7] text-[var(--text-light)]">
-        Click a weekday to open or close it. Rose = booked. Outlined = open for
-        guests.
+        Click any day, including Saturday or Sunday, to open or close it. Rose =
+        booked. Outlined = open for guests.
       </p>
 
       <div className="tani-calendar flex justify-center [&_.rdp-root]:!font-sans [&_.rdp-day_button]:!rounded-none">

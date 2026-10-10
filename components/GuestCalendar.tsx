@@ -195,7 +195,7 @@ export default function GuestCalendar({
           <span className="inline-block h-3 w-3 border border-[var(--dark)] bg-white" />
           Open
         </span>
-        <span>Mon–Fri · 9am–5pm Eastern</span>
+        <span>Any day, including weekends · 9am–5pm Eastern</span>
       </div>
     </div>
   );

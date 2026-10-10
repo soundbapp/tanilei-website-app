@@ -5,7 +5,6 @@ import {
   classifyYmd,
   emptyCalendarState,
   isYmdOpenForBooking,
-  isWeekdayYmd,
   nextAvailableYmd,
   oneMonthFromYmd,
 } from "./calendar";
@@ -13,11 +12,6 @@ import {
 test("one month from 2026-10-10 is 2026-11-10", () => {
   assert.equal(oneMonthFromYmd("2026-10-10"), "2026-11-10");
   assert.equal(INITIAL_UNAVAILABLE_UNTIL, "2026-11-10");
-});
-
-test("weekdays vs weekend", () => {
-  assert.equal(isWeekdayYmd("2026-10-10"), false); // Saturday
-  assert.equal(isWeekdayYmd("2026-11-10"), true); // Tuesday
 });
 
 test("default calendar is booked until November 10", () => {
@@ -29,6 +23,17 @@ test("default calendar is booked until November 10", () => {
   assert.equal(classifyYmd("2026-10-12", state, now), "booked");
   assert.equal(classifyYmd("2026-11-10", state, now), "available");
   assert.equal(nextAvailableYmd(state, now), "2026-11-10");
+});
+
+test("Saturdays and Sundays are working days after the booked-until date", () => {
+  const state = emptyCalendarState();
+  const now = new Date("2026-10-10T15:00:00.000Z");
+  assert.equal(classifyYmd("2026-10-10", state, now), "booked"); // Saturday before Nov 10
+  assert.equal(classifyYmd("2026-10-11", state, now), "booked"); // Sunday before Nov 10
+  assert.equal(isYmdOpenForBooking("2026-11-14", state, now), true); // Saturday
+  assert.equal(isYmdOpenForBooking("2026-11-15", state, now), true); // Sunday
+  assert.equal(classifyYmd("2026-11-14", state, now), "available");
+  assert.equal(classifyYmd("2026-11-15", state, now), "available");
 });
 
 test("open override punches a hole in the booked stretch", () => {
@@ -45,4 +50,12 @@ test("closed override blocks an otherwise open day", () => {
   const now = new Date("2026-10-10T15:00:00.000Z");
   assert.equal(isYmdOpenForBooking("2026-11-10", state, now), false);
   assert.equal(nextAvailableYmd(state, now), "2026-11-11");
+});
+
+test("Tani can close a weekend day", () => {
+  const state = emptyCalendarState();
+  state.overrides["2026-11-14"] = "closed";
+  const now = new Date("2026-10-10T15:00:00.000Z");
+  assert.equal(isYmdOpenForBooking("2026-11-14", state, now), false);
+  assert.equal(isYmdOpenForBooking("2026-11-15", state, now), true);
 });

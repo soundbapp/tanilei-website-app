@@ -33,15 +33,8 @@ export function oneMonthFromYmd(fromYmd: string): string {
   return formatInTimeZone(addMonths(anchor, 1), BUSINESS_TZ, "yyyy-MM-dd");
 }
 
-export function isWeekdayYmd(ymd: string): boolean {
-  if (!parseYmd(ymd)) return false;
-  const d = toDate(`${ymd}T12:00:00.000`, { timeZone: BUSINESS_TZ });
-  const isoDow = parseInt(formatInTimeZone(d, BUSINESS_TZ, "i"), 10);
-  return isoDow >= 1 && isoDow <= 5;
-}
-
 /**
- * Whether guests may book this calendar day.
+ * Whether guests may book this calendar day (any day of the week, including Saturday and Sunday).
  * `unavailableUntil` is the first open day (exclusive of the booked-out stretch).
  * Overrides: `open` punches a hole in the booked-out stretch; `closed` blocks an otherwise-open day.
  */
@@ -50,7 +43,7 @@ export function isYmdOpenForBooking(
   state: CalendarState,
   now: Date = new Date()
 ): boolean {
-  if (!parseYmd(ymd) || !isWeekdayYmd(ymd)) return false;
+  if (!parseYmd(ymd)) return false;
   const today = ymdInBusinessTz(now);
   if (ymd < today) return false;
 
@@ -66,11 +59,10 @@ export function classifyYmd(
   ymd: string,
   state: CalendarState,
   now: Date = new Date()
-): "past" | "weekend" | "booked" | "available" {
+): "past" | "booked" | "available" {
   if (!parseYmd(ymd)) return "past";
   const today = ymdInBusinessTz(now);
   if (ymd < today) return "past";
-  if (!isWeekdayYmd(ymd)) return "weekend";
   return isYmdOpenForBooking(ymd, state, now) ? "available" : "booked";
 }
 

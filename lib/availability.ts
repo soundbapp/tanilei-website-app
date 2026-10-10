@@ -7,15 +7,9 @@ const SLOT_MINUTES = 30;
 const DAY_START_MIN = 9 * 60; // 09:00
 const DAY_END_MIN = 17 * 60; // 17:00 (last slot starts 16:30)
 
-function isWeekdayYmd(ymd: string): boolean {
-  const d = toDate(`${ymd}T12:00:00.000`, { timeZone: BUSINESS_TZ });
-  const isoDow = parseInt(formatInTimeZone(d, BUSINESS_TZ, "i"), 10);
-  return isoDow >= 1 && isoDow <= 5;
-}
-
 /** Wall-clock slot starts as UTC `Date` for a calendar day `YYYY-MM-DD` in `BUSINESS_TZ`. */
 export function slotInstantsForDay(ymd: string): Date[] {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(ymd) || !isWeekdayYmd(ymd)) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(ymd)) {
     return [];
   }
   const out: Date[] = [];
@@ -49,7 +43,7 @@ function addCalendarDaysYmd(ymd: string, n: number): string {
 
 /**
  * Inclusive `fromYmd` / `toYmd` (calendar days in BUSINESS_TZ).
- * Skips days before `minBookableYmd(now)` and non–weekday days.
+ * Skips days before `minBookableYmd(now)`. Saturday and Sunday are included.
  */
 export function dayRangeToCheck(
   fromYmd: string,
@@ -63,7 +57,7 @@ export function dayRangeToCheck(
   const out: string[] = [];
   let guard = 0;
   while (current <= toYmd && guard++ < 400) {
-    if (isWeekdayYmd(current)) out.push(current);
+    out.push(current);
     if (current === toYmd) break;
     current = addCalendarDaysYmd(current, 1);
   }
