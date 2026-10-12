@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
 import PreVisitForm from "@/components/PreVisitForm";
-import Nav from "@/components/Nav";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Pre-visit form — TaniLei",
@@ -19,7 +20,7 @@ function PreVisitFallback() {
 export default function PreVisitPage() {
   return (
     <>
-      <Nav />
+      <SiteNav />
       <main>
         <section className="relative overflow-hidden px-5 pb-20 pt-28 md:px-12 md:pt-32">
           <div
@@ -55,6 +56,7 @@ export default function PreVisitPage() {
           </div>
         </section>
       </main>
+      <SiteFooter />
     </>
   );
 }

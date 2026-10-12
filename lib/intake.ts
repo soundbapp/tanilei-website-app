@@ -1,3 +1,6 @@
+import { HAIR_BIO_TAGS, SERVICE_OPTIONS } from "./consultation";
+import { parseIntakePhoto, type IntakePhoto } from "./photos";
+
 /**
  * Pre-visit intake v2 (schemaVersion: 2) — appointments.intake_answers JSONB.
  * Legacy v1 (top-level string keys, no schemaVersion) is rejected on new POSTs.
@@ -84,6 +87,12 @@ export type IntakeV2 = {
   allergies: string;
 
   goals: string;
+  requestedService: string;
+  hairBio: string;
+  hairBioTags: string[];
+  beforePhoto: IntakePhoto;
+  desiredPhoto: IntakePhoto;
+  arrivalReady: "prepared" | "surcharge";
   inspirationUrl: string;
   usualStyle: string[];
   openness: 1 | 2 | 3 | 4 | 5;
@@ -245,6 +254,43 @@ export function parseIntakeBody(
       : goalsR;
   }
 
+  const serviceR = str(o.requestedService, 120, "Please choose the service you need");
+  if (!serviceR.ok || !serviceR.v) {
+    return serviceR.ok
+      ? { ok: false, error: "Please choose the service you need" }
+      : serviceR;
+  }
+  if (!(SERVICE_OPTIONS as readonly string[]).includes(serviceR.v)) {
+    return { ok: false, error: "Invalid service" };
+  }
+
+  const hairBioR = str(o.hairBio, MAX_LONG, "Please share a brief bio of your hair");
+  if (!hairBioR.ok || !hairBioR.v) {
+    return hairBioR.ok
+      ? { ok: false, error: "Please share a brief bio of your hair" }
+      : hairBioR;
+  }
+
+  const hairBioTags = pickChips(
+    o.hairBioTags,
+    HAIR_BIO_TAGS as unknown as string[],
+    "hair bio",
+    false
+  );
+  if (!hairBioTags.ok) return hairBioTags;
+
+  const beforePhoto = parseIntakePhoto(o.beforePhoto, "Before photo");
+  if (!beforePhoto.ok) return beforePhoto;
+  const desiredPhoto = parseIntakePhoto(o.desiredPhoto, "Desired-look photo");
+  if (!desiredPhoto.ok) return desiredPhoto;
+
+  if (o.arrivalReady !== "prepared" && o.arrivalReady !== "surcharge") {
+    return {
+      ok: false,
+      error: "Please confirm how you will arrive, or the $50 surcharge.",
+    };
+  }
+
   const inspirationUrl = strOpt(o.inspirationUrl, 2000);
   if (inspirationUrl) {
     try {
@@ -308,6 +354,12 @@ export function parseIntakeBody(
       chemicals: chem.v,
       allergies,
       goals: goalsR.v,
+      requestedService: serviceR.v,
+      hairBio: hairBioR.v,
+      hairBioTags: hairBioTags.v,
+      beforePhoto: beforePhoto.v,
+      desiredPhoto: desiredPhoto.v,
+      arrivalReady: o.arrivalReady,
       inspirationUrl,
       usualStyle: usualStyle.v,
       openness,
@@ -329,4 +381,6 @@ export const INTAKE_V2 = {
   CHEMICAL_OPTIONS,
   STYLE_OPTIONS,
   ADDON_OPTIONS,
+  SERVICE_OPTIONS,
+  HAIR_BIO_TAGS,
 } as const;

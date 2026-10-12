@@ -1,33 +1,53 @@
-"use client";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
-import dynamic from "next/dynamic";
-import Hero from "@/components/Hero";
-import Ticker from "@/components/Ticker";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Kit from "@/components/Kit";
-import AppSection from "@/components/AppSection";
-import Booking from "@/components/Booking";
-import Footer from "@/components/Footer";
-
-const Nav = dynamic(() => import("@/components/Nav"), { ssr: false });
+export const metadata: Metadata = {
+  title: "Tani/Lei — Dallas hair",
+  description:
+    "Luxury hair consultations in Dallas. Book Tani for color, cut, wigs, and the look you want.",
+};
 
 export default function Home() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <Ticker />
-        <Services />
-        <About />
-        <Experience />
-        <Kit />
-        <AppSection />
-        <Booking />
-        <Footer />
+    <div className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-[var(--cream)]">
+      <SiteNav />
+      <main className="relative flex min-h-[100dvh] flex-1 flex-col pb-12 md:flex-row">
+        <div className="relative z-[2] flex flex-1 flex-col justify-end px-6 pb-10 pt-24 md:justify-center md:px-12 md:pb-16 md:pt-20">
+          <p className="mb-4 text-[0.58rem] uppercase tracking-[0.32em] text-[var(--rose-deep)]">
+            Dallas · Hair
+          </p>
+          <h1 className="font-script mb-3 text-[clamp(3.4rem,14vw,6.5rem)] leading-[0.9] text-[var(--dark)]">
+            Tani/Lei
+          </h1>
+          <p className="font-serif mb-8 max-w-sm text-[clamp(1rem,2.2vw,1.45rem)] font-light italic leading-snug text-[var(--text)]">
+            Consult. Color. The look you came for.
+          </p>
+          <Link
+            href="/appointments"
+            className="inline-flex min-h-12 w-fit items-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[0.58rem] uppercase tracking-[0.22em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]"
+          >
+            Book now
+          </Link>
+        </div>
+        <div className="absolute inset-0 z-0 md:relative md:w-[52%] md:min-h-0">
+          <Image
+            src="/images/hero_hair.png"
+            alt="Hair by Tani"
+            fill
+            className="object-cover object-[70%_40%]"
+            priority
+            sizes="(max-width: 768px) 100vw, 52vw"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--cream)] via-[rgba(250,246,243,0.55)] to-transparent md:via-[rgba(250,246,243,0.2)]" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--cream)] md:hidden" />
+        </div>
       </main>
-    </>
+      <div className="absolute inset-x-0 bottom-0 z-[3]">
+        <SiteFooter />
+      </div>
+    </div>
   );
 }

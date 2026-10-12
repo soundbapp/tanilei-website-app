@@ -13,6 +13,7 @@ type ApptRow = {
   intake_submitted_at: string | null;
   customer_name: string;
   customer_email: string | null;
+  notes: string | null;
 };
 
 function getStylistNameFromEnv(): string {
@@ -50,7 +51,7 @@ export async function GET(request: Request) {
 
   const sql = getDb();
   const rows = await sql`
-    SELECT starts_at, intake_submitted_at, customer_name, customer_email
+    SELECT starts_at, intake_submitted_at, customer_name, customer_email, notes
     FROM appointments
     WHERE intake_token = ${token}
     LIMIT 1
@@ -61,12 +62,13 @@ export async function GET(request: Request) {
   }
 
   const first = row.customer_name.split(/\s+/)[0] || "there";
+  const serviceFromNotes = row.notes?.match(/^Service:\s*(.+)$/m)?.[1]?.trim();
   return NextResponse.json({
     submitted: Boolean(row.intake_submitted_at),
     whenLabel: formatWhen(row.starts_at),
     firstName: first,
     customerName: row.customer_name,
-    serviceLabel: DEFAULT_SERVICE_LABEL,
+    serviceLabel: serviceFromNotes || DEFAULT_SERVICE_LABEL,
     stylistName: getStylistNameFromEnv(),
     emailHint: row.customer_email?.trim() || "",
     timeZone: BUSINESS_TZ,

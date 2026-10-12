@@ -2,6 +2,10 @@
 
 Next.js landing page for Tani/Lei luxury beauty (Dallas, TX).
 
+The public site is a short homepage (About, Services, Book) so guests can see what Tani offers immediately. The longer original landing lives at `/classic`.
+
+Booking asks for the service. The pre-visit form then collects a before photo, a desired-look photo, a hair bio, and arrival terms (detangled and braided, or a $50 surcharge). Consultation covers price, timing, hair health, what to expect, and when to rebook.
+
 ## Get running
 
 ```bash

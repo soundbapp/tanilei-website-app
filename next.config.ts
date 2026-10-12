@@ -9,6 +9,12 @@ const nextConfig = {
    * (use `npm run dev` with Turbopack for the most stable dev experience).
    */
   devIndicators: false,
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "4mb",
+    },
+    proxyClientMaxBodySize: "4mb",
+  },
 };
 
 export default nextConfig;

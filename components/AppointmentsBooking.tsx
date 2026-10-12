@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { formatInTimeZone } from "date-fns-tz";
 import Link from "next/link";
 import GuestCalendar, { type GuestCalendarMeta } from "@/components/GuestCalendar";
+import { SERVICE_OPTIONS } from "@/lib/consultation";
 
 const NY = "America/New_York";
 
@@ -19,6 +20,7 @@ export default function AppointmentsBooking() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
+  const [requestedService, setRequestedService] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -55,6 +57,10 @@ export default function AppointmentsBooking() {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedSlot) return;
+    if (!requestedService) {
+      setError("Please choose the service you need.");
+      return;
+    }
     setSubmitting(true);
     setError(null);
     try {
@@ -68,6 +74,7 @@ export default function AppointmentsBooking() {
           customerEmail: email.trim(),
           phone: phone.trim(),
           notes: notes.trim(),
+          requestedService,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -102,7 +109,8 @@ export default function AppointmentsBooking() {
           You&apos;re booked. We sent a confirmation to your email.
         </p>
         <p className="mt-4 text-[0.72rem] text-[var(--text-light)]">
-          Times are shown in Eastern (New York) time.
+          Times are shown in Eastern (New York) time. Check your email for the
+          consultation form — before photo, desired look, and hair bio.
         </p>
         <Link
           href="/"
@@ -184,6 +192,20 @@ export default function AppointmentsBooking() {
                 <p className="text-[0.52rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
                   Your details
                 </p>
+                <select
+                  required
+                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.68rem] text-[var(--text)] outline-none"
+                  value={requestedService}
+                  onChange={(e) => setRequestedService(e.target.value)}
+                  disabled={submitting}
+                >
+                  <option value="">Service you need</option>
+                  {SERVICE_OPTIONS.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
                 <input
                   required
                   className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.68rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"

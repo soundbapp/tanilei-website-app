@@ -5,6 +5,7 @@ import { isValidSlotWindow } from "@/lib/availability";
 import { getFreeSlotsForDate } from "@/lib/appointments-queries";
 import { getCalendarState } from "@/lib/calendar-store";
 import { isYmdOpenForBooking } from "@/lib/calendar";
+import { SERVICE_OPTIONS } from "@/lib/consultation";
 import { sendAppointmentNotifications } from "@/lib/email";
 import { formatInTimeZone } from "date-fns-tz";
 import { BUSINESS_TZ } from "@/lib/availability";
@@ -88,7 +89,21 @@ export async function POST(request: Request) {
     typeof body.customerEmail === "string" ? body.customerEmail.trim() : "";
   const phone =
     typeof body.phone === "string" ? body.phone.trim() : "";
-  const notes = typeof body.notes === "string" ? body.notes.trim() : "";
+  const notesRaw = typeof body.notes === "string" ? body.notes.trim() : "";
+  const requestedService =
+    typeof body.requestedService === "string" ? body.requestedService.trim() : "";
+  if (!requestedService) {
+    return NextResponse.json(
+      { error: "Please choose the service you need" },
+      { status: 400 }
+    );
+  }
+  if (!(SERVICE_OPTIONS as readonly string[]).includes(requestedService)) {
+    return NextResponse.json({ error: "Invalid service" }, { status: 400 });
+  }
+  const notes = [requestedService && `Service: ${requestedService}`, notesRaw]
+    .filter(Boolean)
+    .join("\n");
   if (!customerName) {
     return NextResponse.json({ error: "Name is required" }, { status: 400 });
   }

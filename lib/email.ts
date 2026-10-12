@@ -8,6 +8,8 @@ import {
   wrapPremiumEmail,
 } from "./email-templates";
 import type { IntakeV2 } from "./intake";
+import { photoExtension } from "./photos";
+import { ARRIVAL_SURCHARGE_USD } from "./consultation";
 
 const OUTLOOK_CC = "tanileibeauty@outlook.com";
 
@@ -205,7 +207,7 @@ Notes: ${a.notes || "—"}`;
       ${pBlock("Your time is held on our calendar. We’re looking forward to welcoming you to your Tani/Lei experience.", { emphasis: false })}
       ${dataRow("Reserved for (Eastern)", when)}
       ${ctaBlock(
-        "Before your visit, share a few details (about 2 minutes) so we can prepare for you — skin, hair, and any history we should know.",
+        "Before your visit, complete the consultation form: the service you need, a before photo, a desired-look photo, and a brief bio of your hair. Come detangled, braided, and ready to be treated — or a $50 surcharge applies.",
         a.intakeUrl
       )}
       ${pMuted("If you need to change this time, reply to this message or call us and we’ll help.")}
@@ -218,8 +220,10 @@ Your Tani/Lei appointment is confirmed.
 
 When (Eastern): ${when}
 
-Pre-visit form (2 minutes):
+Consultation form (service, before photo, desired look, hair bio):
 ${a.intakeUrl}
+
+Please arrive detangled, braided, and ready to be treated, or a $50 surcharge applies.
 
 If you need to change your visit, reply to this email or call 202-510-8945.
 
@@ -273,7 +277,22 @@ function buildIntakeBriefHtml(a: IntakeV2, when: string, bookingName: string) {
     hairLines.push(`Chemicals (6 mo.): ${a.chemicals.join(", ")}`);
   }
 
-  const goalLines: string[] = [a.goals.trim() || "—"];
+  const goalLines: string[] = [
+    `Service: ${a.requestedService}`,
+    a.goals.trim() || "—",
+  ];
+  if (a.hairBioTags.length) {
+    goalLines.push(`Hair notes: ${a.hairBioTags.join(", ")}`);
+  }
+  if (a.hairBio.trim()) {
+    goalLines.push(`Hair bio: ${a.hairBio.trim()}`);
+  }
+  goalLines.push(
+    a.arrivalReady === "prepared"
+      ? "Arrival: detangled, braided, ready to treat"
+      : `Arrival: $${ARRIVAL_SURCHARGE_USD} surcharge if not prepared`
+  );
+  goalLines.push("Photos: before + desired look (attached)");
   if (a.inspirationUrl.trim()) {
     goalLines.push(`Inspiration: ${a.inspirationUrl.trim()}`);
   }
@@ -348,6 +367,11 @@ HAIR: ${a.hairType} · ${a.hairLength || "length n/a"}${
   }
 ${ct ? `${ct}\n` : ""}Chemicals: ${a.chemicals.join(", ") || "—"}
 
+SERVICE: ${a.requestedService}
+HAIR BIO: ${a.hairBioTags.join(", ") || "—"}
+${a.hairBio}
+ARRIVAL: ${a.arrivalReady === "prepared" ? "prepared" : `$${ARRIVAL_SURCHARGE_USD} surcharge`}
+PHOTOS: before + desired look attached
 GOALS: ${a.goals}
 ${
   a.inspirationUrl.trim() ? `Inspiration: ${a.inspirationUrl}\n` : ""
@@ -399,6 +423,16 @@ export async function sendIntakeToTeam(payload: {
     subject: `Tani/Lei — pre-visit: ${displayName} · ${payload.when}`,
     text: businessText,
     html: businessHtml,
+    attachments: [
+      {
+        filename: `before.${photoExtension(a.beforePhoto.mime)}`,
+        content: a.beforePhoto.data,
+      },
+      {
+        filename: `desired.${photoExtension(a.desiredPhoto.mime)}`,
+        content: a.desiredPhoto.data,
+      },
+    ],
   });
   if (error) {
     return { ok: false as const, error: error.message };

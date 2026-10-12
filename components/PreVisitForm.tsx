@@ -8,6 +8,9 @@ import {
   INTAKE_V2,
   type IntakeV2,
 } from "@/lib/intake";
+import type { IntakePhoto } from "@/lib/photos";
+import PhotoUpload from "@/components/PhotoUpload";
+import { ARRIVAL_SURCHARGE_USD, CONSULTATION_ARRIVAL } from "@/lib/consultation";
 
 type LoadState = "loading" | "ready" | "submitted" | "not_found" | "error";
 
@@ -15,12 +18,24 @@ const STEPS = ["You", "Your Hair", "The Visit", "Confirm"] as const;
 
 type Draft = Omit<
   IntakeV2,
-  "schemaVersion" | "firstVisit" | "colorTreated" | "reminderPref" | "kitInterest"
+  | "schemaVersion"
+  | "firstVisit"
+  | "colorTreated"
+  | "reminderPref"
+  | "kitInterest"
+  | "beforePhoto"
+  | "desiredPhoto"
+  | "arrivalReady"
+  | "requestedService"
 > & {
   firstVisit: "" | "first" | "returning";
   colorTreated: "" | "recent" | "grown" | "natural";
   reminderPref: "" | IntakeV2["reminderPref"];
   kitInterest: "" | IntakeV2["kitInterest"];
+  requestedService: string;
+  beforePhoto: IntakePhoto | null;
+  desiredPhoto: IntakePhoto | null;
+  arrivalReady: "" | "prepared" | "surcharge";
 };
 
 function emptyDraft(): Draft {
@@ -38,6 +53,12 @@ function emptyDraft(): Draft {
     chemicals: [],
     allergies: "",
     goals: "",
+    requestedService: "",
+    hairBio: "",
+    hairBioTags: [],
+    beforePhoto: null as IntakePhoto | null,
+    desiredPhoto: null as IntakePhoto | null,
+    arrivalReady: "" as "" | "prepared" | "surcharge",
     inspirationUrl: "",
     usualStyle: [],
     openness: 3,
@@ -136,6 +157,12 @@ export default function PreVisitForm() {
       if (data.emailHint) {
         setForm((f) => ({ ...f, email: f.email || data.emailHint }));
       }
+      if (data.serviceLabel) {
+        setForm((f) => ({
+          ...f,
+          requestedService: f.requestedService || data.serviceLabel,
+        }));
+      }
       if (data.submitted) {
         setLoadState("submitted");
       } else {
@@ -165,6 +192,12 @@ export default function PreVisitForm() {
     chemicals: form.chemicals,
     allergies: form.allergies,
     goals: form.goals.trim(),
+    requestedService: form.requestedService,
+    hairBio: form.hairBio.trim(),
+    hairBioTags: form.hairBioTags,
+    beforePhoto: form.beforePhoto as IntakeV2["beforePhoto"],
+    desiredPhoto: form.desiredPhoto as IntakeV2["desiredPhoto"],
+    arrivalReady: form.arrivalReady as IntakeV2["arrivalReady"],
     inspirationUrl: form.inspirationUrl.trim(),
     usualStyle: form.usualStyle,
     openness: form.openness,
@@ -190,6 +223,15 @@ export default function PreVisitForm() {
       if (!form.hairType) return "Please select a hair type.";
     }
     if (s === 2) {
+      if (!form.requestedService) return "Please choose the service you need.";
+      if (!form.beforePhoto) return "Please upload a before photo of your hair.";
+      if (!form.desiredPhoto) return "Please upload a photo of your desired look.";
+      if (!form.hairBio.trim()) {
+        return "Please share a brief bio of your hair.";
+      }
+      if (form.arrivalReady !== "prepared" && form.arrivalReady !== "surcharge") {
+        return "Please confirm how you will arrive, or the $50 surcharge.";
+      }
       if (!form.goals.trim()) {
         return "Please share what you’re hoping to achieve (required).";
       }
@@ -780,8 +822,125 @@ export default function PreVisitForm() {
             </h3>
             <p className="mb-5 mt-1 text-[0.55rem] font-light leading-[1.9] text-[var(--text-light)]">
               Help Tani understand what you&apos;re coming in for and what you
-              want to walk away with.
+              want to walk away with. We will go over price, timing, hair health
+              and history, what to expect next, and when to rebook.
             </p>
+            <div className="mb-4">
+              <p className={labelClass}>
+                Service you need{labelReq}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {INTAKE_V2.SERVICE_OPTIONS.map((opt) => (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => setForm((f) => ({ ...f, requestedService: opt }))}
+                    className={
+                      chipClass +
+                      (form.requestedService === opt ? chipSelectedClass : "")
+                    }
+                    disabled={saving}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="mb-4 grid gap-4 sm:grid-cols-2">
+              <PhotoUpload
+                label="Before — your hair today"
+                required
+                value={form.beforePhoto}
+                onChange={(beforePhoto) => setForm((f) => ({ ...f, beforePhoto }))}
+                disabled={saving}
+              />
+              <PhotoUpload
+                label="Desired look"
+                required
+                value={form.desiredPhoto}
+                onChange={(desiredPhoto) => setForm((f) => ({ ...f, desiredPhoto }))}
+                disabled={saving}
+              />
+            </div>
+            <div className="mb-4">
+              <p className={labelClass}>Your hair in brief{labelReq}</p>
+              <p className="mb-2 text-[0.55rem] leading-[1.7] text-[var(--text-light)]">
+                Color or natural? Highlights? Wigs, weaves, sprays?
+              </p>
+              <div className="mb-3 flex flex-wrap gap-2">
+                {INTAKE_V2.HAIR_BIO_TAGS.map((opt) => (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() =>
+                      setForm((f) => ({
+                        ...f,
+                        hairBioTags: toggleMulti(f.hairBioTags, opt),
+                      }))
+                    }
+                    className={
+                      chipClass +
+                      (form.hairBioTags.includes(opt) ? chipSelectedClass : "")
+                    }
+                    disabled={saving}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+              <textarea
+                id="pv-hair-bio"
+                className={`${inputClass} min-h-[90px] resize-y leading-[1.7]`}
+                value={form.hairBio}
+                onChange={(e) => setForm((f) => ({ ...f, hairBio: e.target.value }))}
+                placeholder="A few sentences about your hair right now."
+                rows={4}
+                disabled={saving}
+              />
+            </div>
+            <div className="mb-4 border border-[var(--rose-light)] bg-[var(--rose-pale)] px-3.5 py-3">
+              <p className={labelClass}>When you arrive{labelReq}</p>
+              <p className="mb-3 text-[0.55rem] leading-[1.8] text-[var(--text)]">
+                {CONSULTATION_ARRIVAL}
+              </p>
+              <div className="flex flex-col gap-2">
+                {(
+                  [
+                    [
+                      "prepared",
+                      "I will arrive detangled, braided, and ready to be treated",
+                    ],
+                    [
+                      "surcharge",
+                      `I understand a $${ARRIVAL_SURCHARGE_USD} surcharge applies if I am not prepared`,
+                    ],
+                  ] as const
+                ).map(([v, t]) => (
+                  <button
+                    key={v}
+                    type="button"
+                    onClick={() => setForm((f) => ({ ...f, arrivalReady: v }))}
+                    className={
+                      "flex items-center gap-2.5 border px-3.5 py-2.5 text-left text-[0.6rem] " +
+                      (form.arrivalReady === v
+                        ? "border-[var(--dark)] bg-white"
+                        : "border-[var(--rose-light)] bg-white hover:border-[var(--rose-gold)]")
+                    }
+                    disabled={saving}
+                  >
+                    <span
+                      className={
+                        "h-2.5 w-2.5 shrink-0 rounded-full border-2 " +
+                        (form.arrivalReady === v
+                          ? "border-[var(--rose-gold)] bg-[var(--dark)]"
+                          : "border-[var(--rose-gold)]")
+                      }
+                    />
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
             <div className="mb-4">
               <label className={labelClass} htmlFor="pv-goals">
                 What are you hoping to achieve today?{labelReq}
