@@ -13,7 +13,7 @@ export default function SiteNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="absolute left-0 right-0 top-0 z-[200] flex h-[68px] items-center justify-between px-6 md:px-10">
+    <header className="absolute left-0 right-0 top-0 z-[200] flex h-[68px] items-center justify-between border-b border-[rgba(201,169,154,0.35)] bg-[rgba(250,246,243,0.94)] px-6 backdrop-blur-[14px] md:px-10">
       <Link
         href="/"
         className="font-script text-[1.65rem] text-[var(--dark)] no-underline"
@@ -26,7 +26,11 @@ export default function SiteNav() {
           <Link
             key={l.href}
             href={l.href}
-            className="text-[0.58rem] uppercase tracking-[0.22em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]"
+            className={
+              l.href === "/appointments"
+                ? "border border-[var(--dark)] bg-[var(--dark)] px-4 py-2 text-[0.58rem] uppercase tracking-[0.22em] text-white no-underline transition-colors hover:bg-[var(--rose-deep)] hover:border-[var(--rose-deep)]"
+                : "text-[0.58rem] uppercase tracking-[0.22em] text-[var(--dark)] no-underline transition-colors hover:text-[var(--rose-deep)]"
+            }
           >
             {l.label}
           </Link>
