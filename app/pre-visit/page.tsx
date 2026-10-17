@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 function PreVisitFallback() {
   return (
-    <p className="text-center text-[0.72rem] text-[var(--text-light)]">Loading…</p>
+    <p className="text-center text-[1.05rem] text-[var(--text-light)]">Loading…</p>
   );
 }
 
@@ -32,14 +32,14 @@ export default function PreVisitPage() {
             aria-hidden
           />
           <div className="relative z-[1] mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-[0.52rem] uppercase tracking-[0.38em] text-[var(--rose-deep)]">
+            <p className="mb-3 text-[0.8rem] uppercase tracking-[0.22em] text-[var(--rose-deep)]">
               Before you arrive
             </p>
             <h1 className="font-serif mb-4 text-[clamp(1.6rem,3.5vw,2.4rem)] font-light leading-tight text-[var(--dark)]">
               Pre-visit <em className="text-[var(--rose-deep)]">form</em>
             </h1>
             <div className="section-line mx-auto h-px w-[50px] bg-[var(--rose-gold)]" />
-            <p className="mx-auto mt-6 max-w-lg text-[0.72rem] font-light leading-[2] text-[var(--text-light)]">
+            <p className="mx-auto mt-6 max-w-lg text-[1.05rem] font-light leading-[1.8] text-[var(--text-light)]">
               Private link from your booking confirmation.{" "}
               <Link
                 href="/"

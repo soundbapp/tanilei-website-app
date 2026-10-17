@@ -81,7 +81,7 @@ export default function PhotoUpload({
 
   return (
     <div>
-      <p className="mb-1.5 block text-[0.5rem] uppercase tracking-[0.2em] text-[var(--text-light)]">
+      <p className="mb-1.5 block text-[0.8rem] uppercase tracking-[0.2em] text-[var(--text-light)]">
         {label}
         {required ? <span className="text-[var(--rose-gold)]"> *</span> : null}
       </p>
@@ -91,7 +91,7 @@ export default function PhotoUpload({
             // eslint-disable-next-line @next/next/no-img-element
             <img src={preview} alt="" className="h-full w-full object-cover" />
           ) : (
-            <span className="flex h-full items-center justify-center px-1 text-center text-[0.4rem] uppercase tracking-[0.12em] text-[var(--text-light)]">
+            <span className="flex h-full items-center justify-center px-1 text-center text-[0.75rem] uppercase tracking-[0.12em] text-[var(--text-light)]">
               No photo
             </span>
           )}
@@ -103,14 +103,14 @@ export default function PhotoUpload({
             accept="image/jpeg,image/png,image/webp,image/*"
             capture="environment"
             disabled={disabled || busy}
-            className="block w-full text-[0.58rem] text-[var(--text)] file:mr-3 file:border-0 file:bg-[var(--dark)] file:px-3 file:py-2 file:text-[0.45rem] file:uppercase file:tracking-[0.16em] file:text-white"
+            className="block w-full text-[0.95rem] text-[var(--text)] file:mr-3 file:border-0 file:bg-[var(--dark)] file:px-3 file:py-2 file:text-[0.8rem] file:uppercase file:tracking-[0.16em] file:text-white"
             onChange={(e) => void onFile(e.target.files?.[0])}
           />
           {busy && (
-            <p className="mt-1.5 text-[0.5rem] text-[var(--text-light)]">Preparing photo…</p>
+            <p className="mt-1.5 text-[0.8rem] text-[var(--text-light)]">Preparing photo…</p>
           )}
           {error && (
-            <p className="mt-1.5 text-[0.55rem] text-red-600" role="alert">
+            <p className="mt-1.5 text-[0.95rem] text-red-600" role="alert">
               {error}
             </p>
           )}

@@ -82,17 +82,17 @@ function isValidEmail(s: string): boolean {
 }
 
 const chipClass =
-  "text-[0.48rem] uppercase tracking-[0.15em] border px-3.5 py-1.5 transition-colors " +
+  "text-[0.8rem] uppercase tracking-[0.15em] border px-3.5 py-1.5 transition-colors " +
   "border-[var(--rose-light)] bg-white text-[var(--text-light)] hover:border-[var(--rose-gold)] hover:text-[var(--rose-deep)]";
 const chipSelectedClass =
   " border-[var(--dark)] bg-[var(--dark)] text-[var(--rose-gold)] hover:text-[var(--rose-gold)]";
 
 const inputClass =
-  "w-full border border-[var(--rose-light)] bg-white px-3.5 py-2.5 text-[0.65rem] text-[var(--text)] outline-none " +
+  "w-full border border-[var(--rose-light)] bg-white px-3.5 py-2.5 text-[1rem] text-[var(--text)] outline-none " +
   "placeholder:text-[var(--text-light)] focus:border-[var(--rose-gold)]";
 
 const labelClass =
-  "mb-1.5 block text-[0.5rem] uppercase tracking-[0.2em] text-[var(--text-light)]";
+  "mb-1.5 block text-[0.8rem] uppercase tracking-[0.2em] text-[var(--text-light)]";
 const labelReq = (
   <span className="text-[var(--rose-gold)]"> *</span>
 );
@@ -309,13 +309,13 @@ export default function PreVisitForm() {
 
   if (!token) {
     return (
-      <div className="mx-auto max-w-lg text-center text-[0.8rem] leading-[1.8] text-[var(--text)]">
+      <div className="mx-auto max-w-lg text-center text-[1.05rem] leading-[1.8] text-[var(--text)]">
         <p className="mb-4 text-[var(--rose-deep)]">
           This page needs the link from your appointment confirmation email.
         </p>
         <Link
           href="/appointments"
-          className="text-[0.58rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
+          className="text-[0.85rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
         >
           Book an appointment
         </Link>
@@ -325,7 +325,7 @@ export default function PreVisitForm() {
 
   if (loadState === "loading") {
     return (
-      <p className="text-center text-[0.72rem] text-[var(--text-light)]">
+      <p className="text-center text-[1.05rem] text-[var(--text-light)]">
         Loading…
       </p>
     );
@@ -333,7 +333,7 @@ export default function PreVisitForm() {
 
   if (loadState === "not_found") {
     return (
-      <div className="mx-auto max-w-lg text-center text-[0.8rem] text-[var(--text)]">
+      <div className="mx-auto max-w-lg text-center text-[1.05rem] text-[var(--text)]">
         <p className="mb-4 text-[var(--rose-deep)]">
           This link is invalid or has expired. If you have an upcoming visit, use
           the latest email from TaniLei, or get in touch.
@@ -347,7 +347,7 @@ export default function PreVisitForm() {
         <p className="mt-6">
           <Link
             href="/appointments"
-            className="text-[0.58rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
+            className="text-[0.85rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
           >
             Book an appointment
           </Link>
@@ -358,7 +358,7 @@ export default function PreVisitForm() {
 
   if (loadState === "error") {
     return (
-      <p className="text-center text-[0.72rem] text-red-600">
+      <p className="text-center text-[1.05rem] text-red-600">
         Something went wrong.{" "}
         <button
           type="button"
@@ -383,19 +383,19 @@ export default function PreVisitForm() {
         <p className="mt-2 font-serif text-[clamp(1.15rem,2.5vw,1.4rem)] font-light italic text-[var(--dark)]">
           You&apos;re all set.
         </p>
-        <p className="mt-3 text-[0.72rem] leading-[1.9] text-[var(--text-light)]">
+        <p className="mt-3 text-[1.05rem] leading-[1.9] text-[var(--text-light)]">
           {emailError
             ? "We saved your answers. If the team’s confirmation email is delayed, don’t worry — we have your form."
             : "Thank you. Your pre-visit details are on their way to the team. We can’t wait to see you."}
         </p>
-        <p className="mt-4 text-[0.72rem] text-[var(--text-light)]">
+        <p className="mt-4 text-[1.05rem] text-[var(--text-light)]">
           {meta?.whenLabel
             ? `Your visit: ${meta.whenLabel} (Eastern)`
             : null}
         </p>
         <Link
           href="/"
-          className="mt-8 inline-block text-[0.58rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
+          className="mt-8 inline-block text-[0.85rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
         >
           Home
         </Link>
@@ -409,20 +409,20 @@ export default function PreVisitForm() {
   return (
     <div className="mx-auto w-full max-w-[680px] overflow-hidden bg-[var(--cream)] text-[var(--text)]">
       <div className="bg-[var(--dark)] px-6 py-6 pb-5 md:px-8">
-        <p className="text-[0.4rem] uppercase tracking-[0.32em] text-[var(--rose-gold)]">
+        <p className="text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-gold)]">
           Pre-Appointment Intake
         </p>
         <h2 className="mt-1.5 font-serif text-[1.4rem] font-light italic leading-tight text-white md:text-[1.5rem]">
           Tani/Lei
         </h2>
-        <p className="mt-1.5 text-[0.5rem] uppercase tracking-[0.18em] text-[var(--rose-light)] opacity-80">
+        <p className="mt-1.5 text-[0.8rem] uppercase tracking-[0.18em] text-[var(--rose-light)] opacity-80">
           The Beauty Experience · Carrollton, Texas
         </p>
       </div>
 
       <div className="flex flex-col gap-3 border-l-[3px] border-[var(--rose-gold)] bg-[var(--rose-pale)] px-4 py-3.5 sm:flex-row sm:items-center sm:gap-4 md:px-5">
         <div className="min-w-0 flex-1">
-          <p className="text-[0.4rem] uppercase tracking-[0.28em] text-[var(--rose-deep)]">
+          <p className="text-[0.8rem] uppercase tracking-[0.18em] text-[var(--rose-deep)]">
             Your appointment
           </p>
           <p className="font-serif text-[0.9rem] text-[var(--dark)]">
@@ -430,7 +430,7 @@ export default function PreVisitForm() {
           </p>
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-[0.4rem] uppercase tracking-[0.28em] text-[var(--rose-deep)]">
+          <p className="text-[0.8rem] uppercase tracking-[0.18em] text-[var(--rose-deep)]">
             Date & time
           </p>
           <p className="font-serif text-[0.9rem] text-[var(--dark)]">
@@ -438,7 +438,7 @@ export default function PreVisitForm() {
           </p>
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-[0.4rem] uppercase tracking-[0.28em] text-[var(--rose-deep)]">
+          <p className="text-[0.8rem] uppercase tracking-[0.18em] text-[var(--rose-deep)]">
             Stylist
           </p>
           <p className="font-serif text-[0.9rem] text-[var(--dark)]">
@@ -454,7 +454,7 @@ export default function PreVisitForm() {
             style={{ width: `${progressPct}%` }}
           />
         </div>
-        <div className="flex justify-between px-4 pt-1.5 text-[0.4rem] uppercase tracking-[0.2em] md:px-8">
+        <div className="flex justify-between px-4 pt-1.5 text-[0.8rem] uppercase tracking-[0.2em] md:px-8">
           {STEPS.map((label, i) => (
             <button
               key={label}
@@ -482,12 +482,12 @@ export default function PreVisitForm() {
       </div>
 
       {formError && (
-        <p className="mt-4 px-4 text-[0.68rem] text-red-600 md:px-8" role="alert">
+        <p className="mt-4 px-4 text-[0.95rem] text-red-600 md:px-8" role="alert">
           {formError}
         </p>
       )}
       {stepError && (
-        <p className="mt-2 px-4 text-[0.68rem] text-red-600 md:px-8" role="alert">
+        <p className="mt-2 px-4 text-[0.95rem] text-red-600 md:px-8" role="alert">
           {stepError}
         </p>
       )}
@@ -495,13 +495,13 @@ export default function PreVisitForm() {
       <form onSubmit={handleFormSubmit} className="px-4 pb-10 pt-2 md:px-8">
         {step === 0 && (
           <section>
-            <p className="text-[0.4rem] uppercase tracking-[0.32em] text-[var(--rose-deep)]">
+            <p className="text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
               Step 1 of 4
             </p>
             <h3 className="mt-1.5 font-serif text-[1.1rem] font-light italic text-[var(--dark)]">
               Tell us about yourself
             </h3>
-            <p className="mb-5 mt-1 text-[0.55rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="mb-5 mt-1 text-[1.05rem] font-light leading-[1.9] text-[var(--text-light)]">
               So Tani can greet you properly and have everything ready before you
               arrive, {m.firstName}.
             </p>
@@ -595,9 +595,9 @@ export default function PreVisitForm() {
                       }
                     />
                     <span>
-                      <span className="text-[0.6rem] text-[var(--text)]">{t}</span>
+                      <span className="text-[1rem] text-[var(--text)]">{t}</span>
                       {sub ? (
-                        <span className="mt-0.5 block text-[0.5rem] text-[var(--text-light)]">
+                        <span className="mt-0.5 block text-[0.8rem] text-[var(--text-light)]">
                           {sub}
                         </span>
                       ) : null}
@@ -634,7 +634,7 @@ export default function PreVisitForm() {
               <button
                 type="button"
                 onClick={goNext}
-                className="bg-[var(--dark)] px-6 py-2.5 text-[0.5rem] font-medium uppercase tracking-[0.2em] text-white border border-[var(--dark)] transition-colors hover:bg-transparent hover:text-[var(--dark)]"
+                className="bg-[var(--dark)] px-6 py-2.5 text-[0.8rem] font-medium uppercase tracking-[0.2em] text-white border border-[var(--dark)] transition-colors hover:bg-transparent hover:text-[var(--dark)]"
                 disabled={saving}
               >
                 Continue →
@@ -645,13 +645,13 @@ export default function PreVisitForm() {
 
         {step === 1 && (
           <section>
-            <p className="text-[0.4rem] uppercase tracking-[0.32em] text-[var(--rose-deep)]">
+            <p className="text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
               Step 2 of 4
             </p>
             <h3 className="mt-1.5 font-serif text-[1.1rem] font-light italic text-[var(--dark)]">
               Your hair, your way
             </h3>
-            <p className="mb-5 mt-1 text-[0.55rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="mb-5 mt-1 text-[1.05rem] font-light leading-[1.9] text-[var(--text-light)]">
               The more Tani knows, the better she can prepare.
             </p>
             <div className="mb-4">
@@ -733,7 +733,7 @@ export default function PreVisitForm() {
                     type="button"
                     onClick={() => setForm((f) => ({ ...f, colorTreated: v }))}
                     className={
-                      "flex items-center gap-2.5 border px-3.5 py-2.5 text-left text-[0.6rem] " +
+                      "flex items-center gap-2.5 border px-3.5 py-2.5 text-left text-[1rem] " +
                       (form.colorTreated === v
                         ? "border-[var(--dark)] bg-[var(--rose-pale)]"
                         : "border-[var(--rose-light)] bg-white hover:border-[var(--rose-gold)]")
@@ -795,7 +795,7 @@ export default function PreVisitForm() {
               <button
                 type="button"
                 onClick={goBack}
-                className="bg-transparent p-0 text-[0.5rem] uppercase tracking-[0.2em] text-[var(--text-light)]"
+                className="bg-transparent p-0 text-[0.8rem] uppercase tracking-[0.2em] text-[var(--text-light)]"
                 disabled={saving}
               >
                 ← Back
@@ -803,7 +803,7 @@ export default function PreVisitForm() {
               <button
                 type="button"
                 onClick={goNext}
-                className="bg-[var(--dark)] px-6 py-2.5 text-[0.5rem] font-medium uppercase tracking-[0.2em] text-white border border-[var(--dark)] transition-colors hover:bg-transparent hover:text-[var(--dark)]"
+                className="bg-[var(--dark)] px-6 py-2.5 text-[0.8rem] font-medium uppercase tracking-[0.2em] text-white border border-[var(--dark)] transition-colors hover:bg-transparent hover:text-[var(--dark)]"
                 disabled={saving}
               >
                 Continue →
@@ -814,13 +814,13 @@ export default function PreVisitForm() {
 
         {step === 2 && (
           <section>
-            <p className="text-[0.4rem] uppercase tracking-[0.32em] text-[var(--rose-deep)]">
+            <p className="text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
               Step 3 of 4
             </p>
             <h3 className="mt-1.5 font-serif text-[1.1rem] font-light italic text-[var(--dark)]">
               About your visit
             </h3>
-            <p className="mb-5 mt-1 text-[0.55rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="mb-5 mt-1 text-[1.05rem] font-light leading-[1.9] text-[var(--text-light)]">
               Help Tani understand what you&apos;re coming in for and what you
               want to walk away with. We will go over price, timing, hair health
               and history, what to expect next, and when to rebook.
@@ -864,7 +864,7 @@ export default function PreVisitForm() {
             </div>
             <div className="mb-4">
               <p className={labelClass}>Your hair in brief{labelReq}</p>
-              <p className="mb-2 text-[0.55rem] leading-[1.7] text-[var(--text-light)]">
+              <p className="mb-2 text-[1.05rem] leading-[1.7] text-[var(--text-light)]">
                 Color or natural? Highlights? Wigs, weaves, sprays?
               </p>
               <div className="mb-3 flex flex-wrap gap-2">
@@ -900,7 +900,7 @@ export default function PreVisitForm() {
             </div>
             <div className="mb-4 border border-[var(--rose-light)] bg-[var(--rose-pale)] px-3.5 py-3">
               <p className={labelClass}>When you arrive{labelReq}</p>
-              <p className="mb-3 text-[0.55rem] leading-[1.8] text-[var(--text)]">
+              <p className="mb-3 text-[1.05rem] leading-[1.8] text-[var(--text)]">
                 {CONSULTATION_ARRIVAL}
               </p>
               <div className="flex flex-col gap-2">
@@ -921,7 +921,7 @@ export default function PreVisitForm() {
                     type="button"
                     onClick={() => setForm((f) => ({ ...f, arrivalReady: v }))}
                     className={
-                      "flex items-center gap-2.5 border px-3.5 py-2.5 text-left text-[0.6rem] " +
+                      "flex items-center gap-2.5 border px-3.5 py-2.5 text-left text-[1rem] " +
                       (form.arrivalReady === v
                         ? "border-[var(--dark)] bg-white"
                         : "border-[var(--rose-light)] bg-white hover:border-[var(--rose-gold)]")
@@ -1008,7 +1008,7 @@ export default function PreVisitForm() {
                     type="button"
                     onClick={() => setForm((f) => ({ ...f, openness: n }))}
                     className={
-                      "min-w-0 flex-1 border py-1.5 text-center text-[0.58rem] " +
+                      "min-w-0 flex-1 border py-1.5 text-center text-[0.85rem] " +
                       (form.openness === n
                         ? "border-[var(--dark)] bg-[var(--dark)] text-[var(--rose-gold)]"
                         : "border-[var(--rose-light)] bg-white text-[var(--text-light)] hover:border-[var(--rose-gold)]")
@@ -1019,7 +1019,7 @@ export default function PreVisitForm() {
                   </button>
                 ))}
               </div>
-              <div className="mt-1 flex justify-between text-[0.38rem] uppercase tracking-[0.08em] text-[var(--text-light)]">
+              <div className="mt-1 flex justify-between text-[0.7rem] uppercase tracking-[0.08em] text-[var(--text-light)]">
                 <span>Specific goals</span>
                 <span>Fully open</span>
               </div>
@@ -1069,7 +1069,7 @@ export default function PreVisitForm() {
               <button
                 type="button"
                 onClick={goBack}
-                className="bg-transparent p-0 text-[0.5rem] uppercase tracking-[0.2em] text-[var(--text-light)]"
+                className="bg-transparent p-0 text-[0.8rem] uppercase tracking-[0.2em] text-[var(--text-light)]"
                 disabled={saving}
               >
                 ← Back
@@ -1077,7 +1077,7 @@ export default function PreVisitForm() {
               <button
                 type="button"
                 onClick={goNext}
-                className="bg-[var(--dark)] px-6 py-2.5 text-[0.5rem] font-medium uppercase tracking-[0.2em] text-white border border-[var(--dark)] transition-colors hover:bg-transparent hover:text-[var(--dark)]"
+                className="bg-[var(--dark)] px-6 py-2.5 text-[0.8rem] font-medium uppercase tracking-[0.2em] text-white border border-[var(--dark)] transition-colors hover:bg-transparent hover:text-[var(--dark)]"
                 disabled={saving}
               >
                 Continue →
@@ -1088,13 +1088,13 @@ export default function PreVisitForm() {
 
         {step === 3 && (
           <section>
-            <p className="text-[0.4rem] uppercase tracking-[0.32em] text-[var(--rose-deep)]">
+            <p className="text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
               Step 4 of 4
             </p>
             <h3 className="mt-1.5 font-serif text-[1.1rem] font-light italic text-[var(--dark)]">
               Almost done
             </h3>
-            <p className="mb-5 mt-1 text-[0.55rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="mb-5 mt-1 text-[1.05rem] font-light leading-[1.9] text-[var(--text-light)]">
               Communication preferences so we can take care of you.
             </p>
             <div className="mb-5">
@@ -1161,9 +1161,9 @@ export default function PreVisitForm() {
                       }
                     />
                     <span>
-                      <span className="text-[0.6rem] text-[var(--text)]">{t}</span>
+                      <span className="text-[1rem] text-[var(--text)]">{t}</span>
                       {sub ? (
-                        <span className="mt-0.5 block text-[0.5rem] text-[var(--text-light)]">
+                        <span className="mt-0.5 block text-[0.8rem] text-[var(--text-light)]">
                           {sub}
                         </span>
                       ) : null}
@@ -1188,8 +1188,8 @@ export default function PreVisitForm() {
                 disabled={saving}
               />
             </div>
-            <div className="mt-5 border-l-[3px] border-[var(--rose-gold)] bg-[var(--rose-pale)] px-4 py-3.5 text-[0.55rem] font-light leading-[1.8] text-[var(--text-light)]">
-              <p className="text-[0.4rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
+            <div className="mt-5 border-l-[3px] border-[var(--rose-gold)] bg-[var(--rose-pale)] px-4 py-3.5 text-[1.05rem] font-light leading-[1.8] text-[var(--text-light)]">
+              <p className="text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
                 Your information
               </p>
               <p className="mt-1.5">
@@ -1201,14 +1201,14 @@ export default function PreVisitForm() {
               <button
                 type="button"
                 onClick={goBack}
-                className="bg-transparent p-0 text-[0.5rem] uppercase tracking-[0.2em] text-[var(--text-light)]"
+                className="bg-transparent p-0 text-[0.8rem] uppercase tracking-[0.2em] text-[var(--text-light)]"
                 disabled={saving}
               >
                 ← Back
               </button>
               <button
                 type="submit"
-                className="border border-[var(--rose-gold)] bg-[var(--rose-gold)] px-6 py-2.5 text-[0.5rem] font-medium uppercase tracking-[0.2em] text-[var(--dark)] transition-colors hover:border-[var(--dark)] hover:bg-[var(--dark)] hover:text-[var(--rose-gold)]"
+                className="border border-[var(--rose-gold)] bg-[var(--rose-gold)] px-6 py-2.5 text-[0.8rem] font-medium uppercase tracking-[0.2em] text-[var(--dark)] transition-colors hover:border-[var(--dark)] hover:bg-[var(--dark)] hover:text-[var(--rose-gold)]"
                 disabled={saving}
               >
                 {saving ? "Sending…" : "Submit ✦"}

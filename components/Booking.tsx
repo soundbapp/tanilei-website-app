@@ -44,14 +44,14 @@ export default function Booking() {
     <section id="book" className="booking relative overflow-hidden px-5 py-20 text-center md:px-12 md:py-[100px] md:pb-[120px]">
       <div className="booking-holo holo absolute inset-0 h-full opacity-[0.38]" />
       <div className="booking-inner relative z-[1] mx-auto max-w-[680px]">
-        <p className="section-eyebrow mb-4 text-[0.52rem] uppercase tracking-[0.38em] text-[var(--rose-deep)]">
+        <p className="section-eyebrow mb-4 text-[0.8rem] uppercase tracking-[0.22em] text-[var(--rose-deep)]">
           Begin Your Journey
         </p>
         <h2 className="font-serif section-title mb-4 text-[clamp(2.2rem,5vw,4.2rem)] font-light leading-tight text-[var(--dark)]">
           Reserve Your <em className="text-[var(--rose-deep)]">Experience</em>
         </h2>
         <div className="section-line mx-auto mt-4 h-px w-[50px] bg-[var(--rose-gold)]" />
-        <p className="booking-sub mx-auto mb-4 mt-7 max-w-[440px] text-[0.72rem] font-light leading-[2] text-[var(--text-light)]">
+        <p className="booking-sub mx-auto mb-4 mt-7 max-w-[440px] text-[1.05rem] font-light leading-[2] text-[var(--text-light)]">
           Join the Tani/Lei family. See Tani&apos;s live calendar below — she is
           booked until a month from today, and not available until November.{" "}
           <Link
@@ -72,7 +72,7 @@ export default function Booking() {
         ) : (
           <>
             {error && (
-              <p className="mb-3 text-[0.68rem] text-red-600" role="alert">
+              <p className="mb-3 text-[1.05rem] text-red-600" role="alert">
                 {error}
               </p>
             )}
@@ -80,7 +80,7 @@ export default function Booking() {
               {mounted ? (
                 <input
                   type="email"
-                  className="booking-input min-h-[52px] flex-1 border-0 bg-white px-4 py-4 font-sans text-[0.68rem] text-[var(--text)] outline-none placeholder:opacity-55 placeholder:text-[var(--text-light)] md:border-0"
+                  className="booking-input min-h-[52px] flex-1 border-0 bg-white px-4 py-4 font-sans text-[1.05rem] text-[var(--text)] outline-none placeholder:opacity-55 placeholder:text-[var(--text-light)] md:border-0"
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -93,14 +93,14 @@ export default function Booking() {
               <button
                 type="submit"
                 disabled={loading}
-                className="booking-btn min-h-[52px] whitespace-nowrap border-0 bg-[var(--dark)] px-5 py-4 font-sans text-[0.5rem] uppercase tracking-[0.18em] text-white transition-colors cursor-pointer hover:bg-[var(--rose-deep)] disabled:opacity-70 disabled:cursor-not-allowed md:py-4"
+                className="booking-btn min-h-[52px] whitespace-nowrap border-0 bg-[var(--dark)] px-5 py-4 font-sans text-[0.8rem] uppercase tracking-[0.18em] text-white transition-colors cursor-pointer hover:bg-[var(--rose-deep)] disabled:opacity-70 disabled:cursor-not-allowed md:py-4"
               >
                 {loading ? "Sending…" : "Request Access"}
               </button>
             </form>
           </>
         )}
-        <p className="booking-note text-[0.5rem] tracking-[0.12em] text-[var(--text-light)]">
+        <p className="booking-note text-[0.8rem] tracking-[0.12em] text-[var(--text-light)]">
           Call us · <a href="tel:2025108945" className="text-[var(--rose-deep)] no-underline">202-510-8945</a> ·{" "}
           <a href="mailto:hello@tanilei.com" className="text-[var(--rose-deep)] no-underline">
             hello@tanilei.com

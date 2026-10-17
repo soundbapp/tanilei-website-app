@@ -16,7 +16,7 @@ export default function ServicesPage() {
       <SiteNav />
       <main className="flex flex-1 flex-col px-6 pb-10 pt-24 md:flex-row md:items-start md:gap-16 md:px-12 md:pt-28">
         <div className="md:w-[42%]">
-          <p className="mb-3 text-[0.52rem] uppercase tracking-[0.32em] text-[var(--rose-deep)]">
+          <p className="mb-3 text-[0.8rem] uppercase tracking-[0.22em] text-[var(--rose-deep)]">
             Services
           </p>
           <h1 className="font-serif mb-8 text-[clamp(1.8rem,4vw,2.8rem)] font-light text-[var(--dark)]">
@@ -26,7 +26,7 @@ export default function ServicesPage() {
             {SERVICE_OPTIONS.filter((s) => s !== "Other").map((name) => (
               <li
                 key={name}
-                className="border-b border-[rgba(201,169,154,0.35)] pb-3 text-[0.72rem] uppercase tracking-[0.16em] text-[var(--text)]"
+                className="border-b border-[rgba(201,169,154,0.35)] pb-3 text-[1rem] uppercase tracking-[0.12em] text-[var(--text)]"
               >
                 {name}
               </li>
@@ -34,7 +34,7 @@ export default function ServicesPage() {
           </ul>
           <Link
             href="/appointments"
-            className="mt-8 inline-flex min-h-12 items-center border border-[var(--dark)] bg-[var(--dark)] px-8 py-3 text-[0.55rem] uppercase tracking-[0.2em] text-white no-underline hover:bg-transparent hover:text-[var(--dark)]"
+            className="mt-8 inline-flex min-h-12 items-center border border-[var(--dark)] bg-[var(--dark)] px-8 py-3 text-[0.85rem] uppercase tracking-[0.16em] text-white no-underline hover:bg-transparent hover:text-[var(--dark)]"
           >
             Book now
           </Link>

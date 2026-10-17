@@ -135,10 +135,10 @@ export default function GuestCalendar({
     <div className="w-full">
       {(nextAvailableLabel || loading) && (
         <div className="mb-5 border border-[rgba(201,169,154,0.45)] bg-white/80 px-4 py-3 text-center">
-          <p className="text-[0.52rem] uppercase tracking-[0.24em] text-[var(--rose-deep)]">
+          <p className="text-[0.8rem] uppercase tracking-[0.18em] text-[var(--rose-deep)]">
             Tani&apos;s calendar
           </p>
-          <p className="mt-2 text-[0.78rem] leading-[1.7] text-[var(--text)]">
+          <p className="mt-2 text-[1.05rem] leading-[1.7] text-[var(--text)]">
             {loading
               ? "Loading availability…"
               : nextAvailableDate && nextAvailableDate > todayYmd()
@@ -153,7 +153,7 @@ export default function GuestCalendar({
             <button
               type="button"
               onClick={goToNextOpen}
-              className="mt-3 border border-[var(--rose-gold)] bg-transparent px-4 py-2 text-[0.52rem] uppercase tracking-[0.18em] text-[var(--dark)] transition-colors hover:bg-[var(--rose-gold)] hover:text-white"
+              className="mt-3 border border-[var(--rose-gold)] bg-transparent px-4 py-2 text-[0.8rem] uppercase tracking-[0.14em] text-[var(--dark)] transition-colors hover:bg-[var(--rose-gold)] hover:text-white"
             >
               Show {format(toDate(`${nextAvailableDate}T12:00:00.000`, { timeZone: NY }), "MMMM")}
             </button>
@@ -162,12 +162,12 @@ export default function GuestCalendar({
       )}
 
       {error && (
-        <p className="mb-3 text-center text-[0.68rem] text-red-600" role="alert">
+        <p className="mb-3 text-center text-[0.95rem] text-red-600" role="alert">
           {error}
         </p>
       )}
 
-      <div className="flex justify-center tani-calendar [&_.rdp-root]:!font-sans [&_.rdp-day_button]:!rounded-none [&_.rdp-day]:!text-[0.7rem] [&_.rdp-weekday]:!text-[0.5rem] [&_.rdp-weekday]:!text-[var(--text-light)] [&_.rdp-selected]:!bg-[var(--dark)] [&_.rdp-selected]:!text-white [&_.rdp-today]:!font-semibold">
+      <div className="flex justify-center tani-calendar [&_.rdp-root]:!font-sans [&_.rdp-day_button]:!rounded-none [&_.rdp-day]:!text-[0.95rem] [&_.rdp-weekday]:!text-[0.8rem] [&_.rdp-weekday]:!text-[var(--text-light)] [&_.rdp-selected]:!bg-[var(--dark)] [&_.rdp-selected]:!text-white [&_.rdp-today]:!font-semibold">
         <DayPicker
           mode="single"
           month={month}
@@ -186,7 +186,7 @@ export default function GuestCalendar({
         />
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-[0.5rem] uppercase tracking-[0.16em] text-[var(--text-light)]">
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-[0.8rem] uppercase tracking-[0.12em] text-[var(--text-light)]">
         <span className="inline-flex items-center gap-2">
           <span className="inline-block h-3 w-3 border border-[var(--rose-gold)] bg-[#f3e2da]" />
           Booked

@@ -108,13 +108,13 @@ export default function AppointmentsBooking() {
         <p className="text-[0.9rem] font-medium text-[var(--rose-deep)]">
           You&apos;re booked. We sent a confirmation to your email.
         </p>
-        <p className="mt-4 text-[0.72rem] text-[var(--text-light)]">
+        <p className="mt-4 text-[1.05rem] text-[var(--text-light)]">
           Times are shown in Eastern (New York) time. Check your email for the
           consultation form — before photo, desired look, and hair bio.
         </p>
         <Link
           href="/"
-          className="mt-8 inline-block text-[0.58rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
+          className="mt-8 inline-block text-[0.85rem] uppercase tracking-[0.2em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
         >
           ← Home
         </Link>
@@ -137,12 +137,12 @@ export default function AppointmentsBooking() {
 
       <div className="min-h-[200px] flex-1">
         {error && (
-          <p className="mb-3 text-[0.68rem] text-red-600" role="alert">
+          <p className="mb-3 text-[0.95rem] text-red-600" role="alert">
             {error}
           </p>
         )}
         {!bookingReady && (
-          <p className="mb-4 text-[0.68rem] leading-[1.8] text-[var(--text-light)]">
+          <p className="mb-4 text-[0.95rem] leading-[1.8] text-[var(--text-light)]">
             The calendar is live so you can see Tani&apos;s openings. To hold a
             time, call{" "}
             <a href="tel:2025108945" className="text-[var(--rose-deep)]">
@@ -156,19 +156,19 @@ export default function AppointmentsBooking() {
           </p>
         )}
         {!selected ? (
-          <p className="text-[0.72rem] leading-[1.8] text-[var(--text-light)]">
+          <p className="text-[1.05rem] leading-[1.8] text-[var(--text-light)]">
             Open days are outlined. Rose days are already booked. Select an open
             day to see times.
           </p>
         ) : loadingSlots ? (
-          <p className="text-[0.7rem] text-[var(--text-light)]">Loading times…</p>
+          <p className="text-[1rem] text-[var(--text-light)]">Loading times…</p>
         ) : slots.length === 0 ? (
-          <p className="text-[0.7rem] text-[var(--text-light)]">
+          <p className="text-[1rem] text-[var(--text-light)]">
             No open times on this day. Please choose another date.
           </p>
         ) : (
           <>
-            <p className="mb-3 text-[0.52rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
+            <p className="mb-3 text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
               Choose a time
             </p>
             <div className="mb-6 flex max-h-[200px] flex-wrap gap-2 overflow-y-auto">
@@ -179,8 +179,8 @@ export default function AppointmentsBooking() {
                   onClick={() => setSelectedSlot(s)}
                   className={
                     selectedSlot?.start === s.start
-                      ? "border border-[var(--dark)] bg-[var(--dark)] px-3 py-2 text-[0.65rem] text-white"
-                      : "border border-[rgba(201,169,154,0.5)] bg-white px-3 py-2 text-[0.65rem] text-[var(--text)] transition-colors hover:border-[var(--rose-deep)]"
+                      ? "border border-[var(--dark)] bg-[var(--dark)] px-3 py-2 text-[0.9rem] text-white"
+                      : "border border-[rgba(201,169,154,0.5)] bg-white px-3 py-2 text-[0.9rem] text-[var(--text)] transition-colors hover:border-[var(--rose-deep)]"
                   }
                 >
                   {s.label}
@@ -189,12 +189,12 @@ export default function AppointmentsBooking() {
             </div>
             {selectedSlot && (
               <form onSubmit={onSubmit} className="space-y-3">
-                <p className="text-[0.52rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
+                <p className="text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
                   Your details
                 </p>
                 <select
                   required
-                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.68rem] text-[var(--text)] outline-none"
+                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.95rem] text-[var(--text)] outline-none"
                   value={requestedService}
                   onChange={(e) => setRequestedService(e.target.value)}
                   disabled={submitting}
@@ -208,7 +208,7 @@ export default function AppointmentsBooking() {
                 </select>
                 <input
                   required
-                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.68rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"
+                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.95rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"
                   placeholder="Full name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -217,21 +217,21 @@ export default function AppointmentsBooking() {
                 <input
                   required
                   type="email"
-                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.68rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"
+                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.95rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={submitting}
                 />
                 <input
-                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.68rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"
+                  className="w-full min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.95rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"
                   placeholder="Phone (optional)"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   disabled={submitting}
                 />
                 <textarea
-                  className="min-h-[80px] w-full resize-y border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.68rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"
+                  className="min-h-[80px] w-full resize-y border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[0.95rem] text-[var(--text)] outline-none placeholder:text-[var(--text-light)]"
                   placeholder="Notes (optional)"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
@@ -241,7 +241,7 @@ export default function AppointmentsBooking() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full min-h-[48px] border-0 bg-[var(--dark)] px-4 py-3 text-[0.5rem] font-medium uppercase tracking-[0.18em] text-white transition-colors hover:bg-[var(--rose-deep)] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="w-full min-h-[48px] border-0 bg-[var(--dark)] px-4 py-3 text-[0.8rem] font-medium uppercase tracking-[0.18em] text-white transition-colors hover:bg-[var(--rose-deep)] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {submitting ? "Booking…" : "Confirm appointment"}
                 </button>

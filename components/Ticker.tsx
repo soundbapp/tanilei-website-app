@@ -22,7 +22,7 @@ export default function Ticker() {
               ◆
             </span>
           ) : (
-            <span key={i} className="px-8 text-[0.52rem] uppercase tracking-[0.25em] text-[var(--rose-gold)]">
+            <span key={i} className="px-8 text-[0.8rem] uppercase tracking-[0.25em] text-[var(--rose-gold)]">
               {content}
             </span>
           )
