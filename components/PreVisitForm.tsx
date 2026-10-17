@@ -10,7 +10,7 @@ import {
 } from "@/lib/intake";
 import type { IntakePhoto } from "@/lib/photos";
 import PhotoUpload from "@/components/PhotoUpload";
-import { ARRIVAL_SURCHARGE_USD, CONSULTATION_ARRIVAL } from "@/lib/consultation";
+import { serviceLabel } from "@/lib/consultation";
 
 type LoadState = "loading" | "ready" | "submitted" | "not_found" | "error";
 
@@ -197,7 +197,10 @@ export default function PreVisitForm() {
     hairBioTags: form.hairBioTags,
     beforePhoto: form.beforePhoto as IntakeV2["beforePhoto"],
     desiredPhoto: form.desiredPhoto as IntakeV2["desiredPhoto"],
-    arrivalReady: form.arrivalReady as IntakeV2["arrivalReady"],
+    arrivalReady:
+      form.arrivalReady === "prepared" || form.arrivalReady === "surcharge"
+        ? form.arrivalReady
+        : "",
     inspirationUrl: form.inspirationUrl.trim(),
     usualStyle: form.usualStyle,
     openness: form.openness,
@@ -228,9 +231,6 @@ export default function PreVisitForm() {
       if (!form.desiredPhoto) return "Please upload a photo of your desired look.";
       if (!form.hairBio.trim()) {
         return "Please share a brief bio of your hair.";
-      }
-      if (form.arrivalReady !== "prepared" && form.arrivalReady !== "surcharge") {
-        return "Please confirm how you will arrive, or the $50 surcharge.";
       }
       if (!form.goals.trim()) {
         return "Please share what you’re hoping to achieve (required).";
@@ -830,20 +830,33 @@ export default function PreVisitForm() {
                 Service you need{labelReq}
               </p>
               <div className="flex flex-wrap gap-2">
-                {INTAKE_V2.SERVICE_OPTIONS.map((opt) => (
+                {INTAKE_V2.SERVICE_MENU.map((item) => (
                   <button
-                    key={opt}
+                    key={item.name}
                     type="button"
-                    onClick={() => setForm((f) => ({ ...f, requestedService: opt }))}
+                    onClick={() =>
+                      setForm((f) => ({ ...f, requestedService: item.name }))
+                    }
                     className={
                       chipClass +
-                      (form.requestedService === opt ? chipSelectedClass : "")
+                      (form.requestedService === item.name ? chipSelectedClass : "")
                     }
                     disabled={saving}
                   >
-                    {opt}
+                    {serviceLabel(item)}
                   </button>
                 ))}
+                <button
+                  type="button"
+                  onClick={() => setForm((f) => ({ ...f, requestedService: "Other" }))}
+                  className={
+                    chipClass +
+                    (form.requestedService === "Other" ? chipSelectedClass : "")
+                  }
+                  disabled={saving}
+                >
+                  Other
+                </button>
               </div>
             </div>
             <div className="mb-4 grid gap-4 sm:grid-cols-2">
@@ -897,49 +910,6 @@ export default function PreVisitForm() {
                 rows={4}
                 disabled={saving}
               />
-            </div>
-            <div className="mb-4 border border-[var(--rose-light)] bg-[var(--rose-pale)] px-3.5 py-3">
-              <p className={labelClass}>When you arrive{labelReq}</p>
-              <p className="mb-3 text-[1.25rem] leading-[1.8] text-[var(--text)]">
-                {CONSULTATION_ARRIVAL}
-              </p>
-              <div className="flex flex-col gap-2">
-                {(
-                  [
-                    [
-                      "prepared",
-                      "I will arrive detangled, braided, and ready to be treated",
-                    ],
-                    [
-                      "surcharge",
-                      `I understand a $${ARRIVAL_SURCHARGE_USD} surcharge applies if I am not prepared`,
-                    ],
-                  ] as const
-                ).map(([v, t]) => (
-                  <button
-                    key={v}
-                    type="button"
-                    onClick={() => setForm((f) => ({ ...f, arrivalReady: v }))}
-                    className={
-                      "flex items-center gap-2.5 border px-3.5 py-2.5 text-left text-[1.2rem] " +
-                      (form.arrivalReady === v
-                        ? "border-[var(--dark)] bg-white"
-                        : "border-[var(--rose-light)] bg-white hover:border-[var(--rose-gold)]")
-                    }
-                    disabled={saving}
-                  >
-                    <span
-                      className={
-                        "h-2.5 w-2.5 shrink-0 rounded-full border-2 " +
-                        (form.arrivalReady === v
-                          ? "border-[var(--rose-gold)] bg-[var(--dark)]"
-                          : "border-[var(--rose-gold)]")
-                      }
-                    />
-                    {t}
-                  </button>
-                ))}
-              </div>
             </div>
             <div className="mb-4">
               <label className={labelClass} htmlFor="pv-goals">

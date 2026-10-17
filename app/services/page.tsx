@@ -3,7 +3,7 @@ import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ConsultationNotes from "@/components/ConsultationNotes";
-import { SERVICE_OPTIONS } from "@/lib/consultation";
+import { SERVICE_MENU } from "@/lib/consultation";
 
 export const metadata: Metadata = {
   title: "Services — Tani/Lei",
@@ -23,12 +23,15 @@ export default function ServicesPage() {
             The chair
           </h1>
           <ul className="list-none space-y-3">
-            {SERVICE_OPTIONS.filter((s) => s !== "Other").map((name) => (
+            {SERVICE_MENU.map((item) => (
               <li
-                key={name}
-                className="border-b border-[rgba(201,169,154,0.35)] pb-3 text-[1.2rem] uppercase tracking-[0.12em] text-[var(--text)]"
+                key={item.name}
+                className="flex items-baseline justify-between gap-4 border-b border-[rgba(201,169,154,0.35)] pb-3 text-[1.15rem] leading-snug text-[var(--text)]"
               >
-                {name}
+                <span>{item.name}</span>
+                <span className="w-[11.5rem] shrink-0 text-right text-[1.05rem] text-[var(--rose-deep)]">
+                  {item.price}
+                </span>
               </li>
             ))}
           </ul>

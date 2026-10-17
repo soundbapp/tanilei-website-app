@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { formatInTimeZone } from "date-fns-tz";
 import Link from "next/link";
 import GuestCalendar, { type GuestCalendarMeta } from "@/components/GuestCalendar";
-import { SERVICE_OPTIONS } from "@/lib/consultation";
+import { SERVICE_MENU, serviceLabel } from "@/lib/consultation";
 
 const NY = "America/New_York";
 
@@ -200,11 +200,12 @@ export default function AppointmentsBooking() {
                   disabled={submitting}
                 >
                   <option value="">Service you need</option>
-                  {SERVICE_OPTIONS.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
+                  {SERVICE_MENU.map((item) => (
+                    <option key={item.name} value={item.name}>
+                      {serviceLabel(item)}
                     </option>
                   ))}
+                  <option value="Other">Other</option>
                 </select>
                 <input
                   required

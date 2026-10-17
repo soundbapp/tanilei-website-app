@@ -1,4 +1,9 @@
-import { HAIR_BIO_TAGS, SERVICE_OPTIONS } from "./consultation";
+import {
+  HAIR_BIO_TAGS,
+  SERVICE_MENU,
+  SERVICE_OPTIONS,
+  isKnownService,
+} from "./consultation";
 import { parseIntakePhoto, type IntakePhoto } from "./photos";
 
 /**
@@ -92,7 +97,7 @@ export type IntakeV2 = {
   hairBioTags: string[];
   beforePhoto: IntakePhoto;
   desiredPhoto: IntakePhoto;
-  arrivalReady: "prepared" | "surcharge";
+  arrivalReady: "" | "prepared" | "surcharge";
   inspirationUrl: string;
   usualStyle: string[];
   openness: 1 | 2 | 3 | 4 | 5;
@@ -260,7 +265,7 @@ export function parseIntakeBody(
       ? { ok: false, error: "Please choose the service you need" }
       : serviceR;
   }
-  if (!(SERVICE_OPTIONS as readonly string[]).includes(serviceR.v)) {
+  if (!isKnownService(serviceR.v)) {
     return { ok: false, error: "Invalid service" };
   }
 
@@ -284,12 +289,10 @@ export function parseIntakeBody(
   const desiredPhoto = parseIntakePhoto(o.desiredPhoto, "Desired-look photo");
   if (!desiredPhoto.ok) return desiredPhoto;
 
-  if (o.arrivalReady !== "prepared" && o.arrivalReady !== "surcharge") {
-    return {
-      ok: false,
-      error: "Please confirm how you will arrive, or the $50 surcharge.",
-    };
-  }
+  const arrivalReady =
+    o.arrivalReady === "prepared" || o.arrivalReady === "surcharge"
+      ? o.arrivalReady
+      : "";
 
   const inspirationUrl = strOpt(o.inspirationUrl, 2000);
   if (inspirationUrl) {
@@ -359,7 +362,7 @@ export function parseIntakeBody(
       hairBioTags: hairBioTags.v,
       beforePhoto: beforePhoto.v,
       desiredPhoto: desiredPhoto.v,
-      arrivalReady: o.arrivalReady,
+      arrivalReady,
       inspirationUrl,
       usualStyle: usualStyle.v,
       openness,
@@ -382,5 +385,6 @@ export const INTAKE_V2 = {
   STYLE_OPTIONS,
   ADDON_OPTIONS,
   SERVICE_OPTIONS,
+  SERVICE_MENU,
   HAIR_BIO_TAGS,
 } as const;

@@ -9,7 +9,6 @@ import {
 } from "./email-templates";
 import type { IntakeV2 } from "./intake";
 import { photoExtension } from "./photos";
-import { ARRIVAL_SURCHARGE_USD } from "./consultation";
 
 const OUTLOOK_CC = "tanileibeauty@outlook.com";
 
@@ -207,7 +206,7 @@ Notes: ${a.notes || "—"}`;
       ${pBlock("Your time is held on our calendar. We’re looking forward to welcoming you to your Tani/Lei experience.", { emphasis: false })}
       ${dataRow("Reserved for (Eastern)", when)}
       ${ctaBlock(
-        "Before your visit, complete the consultation form: the service you need, a before photo, a desired-look photo, and a brief bio of your hair. Come detangled, braided, and ready to be treated — or a $50 surcharge applies.",
+        "Before your visit, complete the consultation form: the service you need, a before photo, a desired-look photo, and a brief bio of your hair.",
         a.intakeUrl
       )}
       ${pMuted("If you need to change this time, reply to this message or call us and we’ll help.")}
@@ -222,8 +221,6 @@ When (Eastern): ${when}
 
 Consultation form (service, before photo, desired look, hair bio):
 ${a.intakeUrl}
-
-Please arrive detangled, braided, and ready to be treated, or a $50 surcharge applies.
 
 If you need to change your visit, reply to this email or call 202-510-8945.
 
@@ -287,11 +284,6 @@ function buildIntakeBriefHtml(a: IntakeV2, when: string, bookingName: string) {
   if (a.hairBio.trim()) {
     goalLines.push(`Hair bio: ${a.hairBio.trim()}`);
   }
-  goalLines.push(
-    a.arrivalReady === "prepared"
-      ? "Arrival: detangled, braided, ready to treat"
-      : `Arrival: $${ARRIVAL_SURCHARGE_USD} surcharge if not prepared`
-  );
   goalLines.push("Photos: before + desired look (attached)");
   if (a.inspirationUrl.trim()) {
     goalLines.push(`Inspiration: ${a.inspirationUrl.trim()}`);
@@ -370,7 +362,6 @@ ${ct ? `${ct}\n` : ""}Chemicals: ${a.chemicals.join(", ") || "—"}
 SERVICE: ${a.requestedService}
 HAIR BIO: ${a.hairBioTags.join(", ") || "—"}
 ${a.hairBio}
-ARRIVAL: ${a.arrivalReady === "prepared" ? "prepared" : `$${ARRIVAL_SURCHARGE_USD} surcharge`}
 PHOTOS: before + desired look attached
 GOALS: ${a.goals}
 ${

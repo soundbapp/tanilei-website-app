@@ -5,7 +5,7 @@ import { isValidSlotWindow } from "@/lib/availability";
 import { getFreeSlotsForDate } from "@/lib/appointments-queries";
 import { getCalendarState } from "@/lib/calendar-store";
 import { isYmdOpenForBooking } from "@/lib/calendar";
-import { SERVICE_OPTIONS } from "@/lib/consultation";
+import { isKnownService } from "@/lib/consultation";
 import { sendAppointmentNotifications } from "@/lib/email";
 import { formatInTimeZone } from "date-fns-tz";
 import { BUSINESS_TZ } from "@/lib/availability";
@@ -98,7 +98,7 @@ export async function POST(request: Request) {
       { status: 400 }
     );
   }
-  if (!(SERVICE_OPTIONS as readonly string[]).includes(requestedService)) {
+  if (!isKnownService(requestedService)) {
     return NextResponse.json({ error: "Invalid service" }, { status: 400 });
   }
   const notes = [requestedService && `Service: ${requestedService}`, notesRaw]
