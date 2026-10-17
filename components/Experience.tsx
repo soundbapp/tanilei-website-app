@@ -27,14 +27,14 @@ export default function Experience() {
       <div className="experience-holo holo absolute right-0 top-0 h-full w-[40%] opacity-[0.07]" />
       <div className="exp-inner relative z-[1] mx-auto max-w-[1100px]">
         <div className="section-header">
-          <p className="section-eyebrow mb-4 text-[0.8rem] uppercase tracking-[0.22em] text-[var(--rose-gold)]">
+          <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-gold)]">
             The Full Day
           </p>
           <h2 className="font-serif section-title mb-4 text-center text-[clamp(1.9rem,7.5vw,2.8rem)] font-light leading-tight text-white">
             A Day That <em className="text-[var(--rose-deep)]">Transforms</em>
           </h2>
           <div className="section-line mx-auto mb-4 h-px w-[50px] bg-[var(--rose-gold)]" />
-          <p className="exp-subtitle mt-4 text-[1.05rem] font-light leading-[2] text-[rgba(255,255,255,0.38)]">
+          <p className="exp-subtitle mt-4 text-[1.25rem] font-light leading-[2] text-[rgba(255,255,255,0.38)]">
             Come in for one service. Stay for the full ritual. Either way, you leave different.
           </p>
         </div>
@@ -47,10 +47,10 @@ export default function Experience() {
               <p className="font-serif exp-num mb-4 text-[3.2rem] font-light leading-none text-[rgba(201,169,154,0.1)]">
                 {s.num}
               </p>
-              <h3 className="font-serif exp-name mb-3 text-[1.3rem] text-[var(--rose-light)]">
+              <h3 className="font-serif exp-name mb-3 text-[1.45rem] text-[var(--rose-light)]">
                 {s.name}
               </h3>
-              <p className="exp-desc text-[1.05rem] font-light leading-[1.9] text-[rgba(232,213,204,0.48)]">
+              <p className="exp-desc text-[1.25rem] font-light leading-[1.9] text-[rgba(232,213,204,0.48)]">
                 {s.desc}
               </p>
             </div>

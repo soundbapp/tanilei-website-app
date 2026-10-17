@@ -60,33 +60,33 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="fixed left-0 right-0 top-0 z-[200] flex h-[68px] items-center justify-between border-b border-[rgba(201,169,154,0.2)] bg-[rgba(250,246,243,0.93)] px-6 py-0 backdrop-blur-[14px] md:px-12">
-        <Link href="/" className="font-script text-2xl text-[var(--dark)] no-underline">
+      <nav className="fixed left-0 right-0 top-0 z-[200] flex h-[80px] items-center justify-between border-b border-[rgba(201,169,154,0.2)] bg-[rgba(250,246,243,0.93)] px-6 py-0 backdrop-blur-[14px] md:px-12">
+        <Link href="/" className="font-script text-[1.9rem] text-[var(--dark)] no-underline">
           Tani/Lei
         </Link>
         <ul className="hidden list-none items-center gap-9 md:flex">
           <li>
-            <Link href="/#services" className="text-[0.85rem] uppercase tracking-[0.16em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]">
+            <Link href="/#services" className="text-[1.1rem] uppercase tracking-[0.16em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]">
               Services
             </Link>
           </li>
           <li>
-            <Link href="/#about" className="text-[0.85rem] uppercase tracking-[0.16em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]">
+            <Link href="/#about" className="text-[1.1rem] uppercase tracking-[0.16em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]">
               About
             </Link>
           </li>
           <li>
-            <Link href="/#experience" className="text-[0.85rem] uppercase tracking-[0.16em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]">
+            <Link href="/#experience" className="text-[1.1rem] uppercase tracking-[0.16em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]">
               Experience
             </Link>
           </li>
           <li>
-            <Link href="/#app" className="text-[0.85rem] uppercase tracking-[0.16em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]">
+            <Link href="/#app" className="text-[1.1rem] uppercase tracking-[0.16em] text-[var(--text-light)] no-underline transition-colors hover:text-[var(--rose-deep)]">
               The App
             </Link>
           </li>
           <li>
-            <Link href="/appointments" className="border border-[var(--rose-gold)] px-5 py-2 text-[0.85rem] uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-all hover:bg-[var(--rose-gold)] hover:text-white">
+            <Link href="/appointments" className="border border-[var(--rose-gold)] px-5 py-2 text-[1.1rem] uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-all hover:bg-[var(--rose-gold)] hover:text-white">
               Book Now
             </Link>
           </li>
@@ -107,16 +107,16 @@ export default function Nav() {
         ref={mobileMenuRef}
         className="mobile-menu fixed inset-0 z-[199] flex flex-col items-center justify-center bg-[var(--cream)]"
       >
-        <Link href="/#services" className="mobile-link w-full border-b border-[rgba(201,169,154,0.15)] py-5 text-center text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text-light)] no-underline">
+        <Link href="/#services" className="mobile-link w-full border-b border-[rgba(201,169,154,0.15)] py-5 text-center text-[1.25rem] uppercase tracking-[0.18em] text-[var(--text-light)] no-underline">
           Services
         </Link>
-        <Link href="/#about" className="mobile-link w-full border-b border-[rgba(201,169,154,0.15)] py-5 text-center text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text-light)] no-underline">
+        <Link href="/#about" className="mobile-link w-full border-b border-[rgba(201,169,154,0.15)] py-5 text-center text-[1.25rem] uppercase tracking-[0.18em] text-[var(--text-light)] no-underline">
           About
         </Link>
-        <Link href="/#experience" className="mobile-link w-full border-b border-[rgba(201,169,154,0.15)] py-5 text-center text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text-light)] no-underline">
+        <Link href="/#experience" className="mobile-link w-full border-b border-[rgba(201,169,154,0.15)] py-5 text-center text-[1.25rem] uppercase tracking-[0.18em] text-[var(--text-light)] no-underline">
           Experience
         </Link>
-        <Link href="/#app" className="mobile-link w-full border-b border-[rgba(201,169,154,0.15)] py-5 text-center text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text-light)] no-underline">
+        <Link href="/#app" className="mobile-link w-full border-b border-[rgba(201,169,154,0.15)] py-5 text-center text-[1.25rem] uppercase tracking-[0.18em] text-[var(--text-light)] no-underline">
           The App
         </Link>
         <Link href="/appointments" className="mobile-menu-cta mt-8 bg-[var(--dark)] px-12 py-4 text-white no-underline">
@@ -130,7 +130,7 @@ export default function Nav() {
       >
         <Link
           href="/appointments"
-          className="block w-full py-[18px] text-center text-[0.85rem] uppercase tracking-[0.16em] text-white no-underline"
+          className="block w-full py-[18px] text-center text-[1.1rem] uppercase tracking-[0.16em] text-white no-underline"
         >
           Book My Experience
         </Link>

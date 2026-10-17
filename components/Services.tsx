@@ -41,7 +41,7 @@ export default function Services() {
   return (
     <section id="services" className="section-wrap services bg-[var(--cream)] px-5 py-16 md:px-12 md:py-[100px]">
       <div className="section-header mb-10 md:mb-16">
-        <p className="section-eyebrow mb-4 text-[0.8rem] uppercase tracking-[0.22em] text-[var(--rose-deep)]">
+        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
           What We Offer
         </p>
         <h2 className="font-serif section-title mb-4 text-[clamp(2.2rem,4.5vw,3.8rem)] font-light leading-tight text-[var(--dark)]">
@@ -56,14 +56,14 @@ export default function Services() {
             className="service-card relative overflow-hidden bg-[var(--rose-pale)] p-6 transition-transform duration-300 hover:-translate-y-1 hover:[&_.svc-holo]:opacity-15 md:p-[52px_34px]"
           >
             <div className="svc-holo holo absolute inset-0 h-full opacity-0 transition-opacity duration-300" />
-            <p className="svc-num relative z-[1] mb-6 font-serif text-[1.05rem] tracking-[0.2em] text-[var(--rose-gold)]">
+            <p className="svc-num relative z-[1] mb-6 font-serif text-[1.25rem] tracking-[0.14em] text-[var(--rose-gold)]">
               {s.num}
             </p>
             <div className="svc-icon relative z-[1] mb-4 text-2xl text-[var(--dark)]">{s.icon}</div>
-            <h3 className="svc-name font-serif relative z-[1] mb-3 text-lg font-normal leading-snug md:text-[1.45rem] text-[var(--dark)]">
+            <h3 className="svc-name font-serif relative z-[1] mb-3 text-lg font-normal leading-snug md:text-[1.6rem] text-[var(--dark)]">
               {s.name}
             </h3>
-            <p className="svc-desc relative z-[1] text-[1.05rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="svc-desc relative z-[1] text-[1.25rem] font-light leading-[1.9] text-[var(--text-light)]">
               {s.desc}
             </p>
           </div>

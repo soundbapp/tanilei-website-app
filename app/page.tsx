@@ -15,19 +15,19 @@ export default function Home() {
     <div className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-[var(--cream)]">
       <SiteNav />
       <main className="relative flex min-h-[100dvh] flex-1 flex-col pb-12 md:flex-row">
-        <div className="relative z-[2] flex flex-1 flex-col justify-end px-6 pb-10 pt-24 md:justify-center md:px-12 md:pb-16 md:pt-20">
-          <p className="mb-4 text-[0.85rem] uppercase tracking-[0.22em] text-[var(--rose-deep)]">
+        <div className="relative z-[2] flex flex-1 flex-col justify-end px-6 pb-28 pt-28 md:justify-center md:px-12 md:pb-16 md:pt-24">
+          <p className="mb-4 text-[1.1rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
             Dallas · Hair
           </p>
           <h1 className="font-script mb-3 text-[clamp(3.4rem,14vw,6.5rem)] leading-[0.9] text-[var(--dark)]">
             Tani/Lei
           </h1>
-          <p className="font-serif mb-8 max-w-md text-[clamp(1.2rem,2.4vw,1.65rem)] font-light italic leading-snug text-[var(--text)]">
+          <p className="font-serif mb-8 max-w-md text-[clamp(1.45rem,2.8vw,1.95rem)] font-light italic leading-snug text-[var(--text)]">
             Consult. Color. The look you came for.
           </p>
           <Link
             href="/appointments"
-            className="inline-flex min-h-12 w-fit items-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[0.85rem] uppercase tracking-[0.16em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]"
+            className="inline-flex min-h-12 w-fit items-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[1.1rem] uppercase tracking-[0.16em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]"
           >
             Book now
           </Link>

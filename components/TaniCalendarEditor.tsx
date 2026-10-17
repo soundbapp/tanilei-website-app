@@ -141,31 +141,31 @@ export default function TaniCalendarEditor() {
   return (
     <div className="mx-auto w-full max-w-3xl text-left">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
-        <p className="text-[1.05rem] text-[var(--text-light)]">
+        <p className="text-[1.25rem] text-[var(--text-light)]">
           Signed in as Tani
         </p>
         <button
           type="button"
           onClick={() => void logout()}
-          className="text-[0.8rem] uppercase tracking-[0.18em] text-[var(--text-light)] hover:text-[var(--rose-deep)]"
+          className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text-light)] hover:text-[var(--rose-deep)]"
         >
           Log out
         </button>
       </div>
 
       {error && (
-        <p className="mb-4 text-[0.95rem] text-red-600" role="alert">
+        <p className="mb-4 text-[1.15rem] text-red-600" role="alert">
           {error}
         </p>
       )}
       {message && (
-        <p className="mb-4 text-[0.95rem] text-[var(--rose-deep)]" role="status">
+        <p className="mb-4 text-[1.15rem] text-[var(--rose-deep)]" role="status">
           {message}
         </p>
       )}
 
       <label className="mb-6 block">
-        <span className="mb-2 block text-[0.8rem] uppercase tracking-[0.2em] text-[var(--rose-deep)]">
+        <span className="mb-2 block text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
           Booked until (first open day)
         </span>
         <input
@@ -177,16 +177,16 @@ export default function TaniCalendarEditor() {
             setUnavailableUntil(value);
             void savePatch({ unavailableUntil: value });
           }}
-          className="min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[1rem] text-[var(--text)]"
+          className="min-h-[48px] border border-[rgba(201,169,154,0.45)] bg-white px-3 py-2 text-[1.2rem] text-[var(--text)]"
         />
-        <span className="mt-2 block text-[1.05rem] leading-[1.7] text-[var(--text-light)]">
+        <span className="mt-2 block text-[1.25rem] leading-[1.7] text-[var(--text-light)]">
           Guests cannot choose days before this date, unless you open one on the
           calendar below. Currently next opening:{" "}
           {nextLabel || (loading ? "…" : "none on the calendar")}.
         </span>
       </label>
 
-      <p className="mb-3 text-[1.05rem] leading-[1.7] text-[var(--text-light)]">
+      <p className="mb-3 text-[1.25rem] leading-[1.7] text-[var(--text-light)]">
         Click any day, including Saturday or Sunday, to open or close it. Rose =
         booked. Outlined = open for guests.
       </p>
@@ -208,7 +208,7 @@ export default function TaniCalendarEditor() {
         />
       </div>
       {saving && (
-        <p className="mt-3 text-center text-[0.9rem] text-[var(--text-light)]">
+        <p className="mt-3 text-center text-[1.15rem] text-[var(--text-light)]">
           Saving…
         </p>
       )}
