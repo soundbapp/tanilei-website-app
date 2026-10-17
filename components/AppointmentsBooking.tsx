@@ -105,7 +105,7 @@ export default function AppointmentsBooking() {
   if (done) {
     return (
       <div className="mx-auto max-w-md text-center">
-        <p className="text-[1.15rem] font-medium text-[var(--rose-deep)]">
+        <p className="text-[1.15rem] font-medium text-[var(--text)]">
           You&apos;re booked. We sent a confirmation to your email.
         </p>
         <p className="mt-4 text-[1.25rem] text-[var(--text-light)]">
@@ -145,11 +145,11 @@ export default function AppointmentsBooking() {
           <p className="mb-4 text-[1.15rem] leading-[1.8] text-[var(--text-light)]">
             The calendar is live so you can see Tani&apos;s openings. To hold a
             time, call{" "}
-            <a href="tel:2025108945" className="text-[var(--rose-deep)]">
+            <a href="tel:2025108945" className="text-[var(--text)]">
               202-510-8945
             </a>{" "}
             or email{" "}
-            <a href="mailto:hello@tanilei.com" className="text-[var(--rose-deep)]">
+            <a href="mailto:hello@tanilei.com" className="text-[var(--text)]">
               hello@tanilei.com
             </a>
             .
@@ -168,7 +168,7 @@ export default function AppointmentsBooking() {
           </p>
         ) : (
           <>
-            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
               Choose a time
             </p>
             <div className="mb-6 flex max-h-[200px] flex-wrap gap-2 overflow-y-auto">
@@ -189,7 +189,7 @@ export default function AppointmentsBooking() {
             </div>
             {selectedSlot && (
               <form onSubmit={onSubmit} className="space-y-3">
-                <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+                <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
                   Your details
                 </p>
                 <select

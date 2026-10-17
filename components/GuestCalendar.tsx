@@ -135,7 +135,7 @@ export default function GuestCalendar({
     <div className="w-full">
       {(nextAvailableLabel || loading) && (
         <div className="mb-5 border border-[rgba(201,169,154,0.45)] bg-white/80 px-4 py-3 text-center">
-          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--rose-deep)]">
+          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text)]">
             Tani&apos;s calendar
           </p>
           <p className="mt-2 text-[1.25rem] leading-[1.7] text-[var(--text)]">

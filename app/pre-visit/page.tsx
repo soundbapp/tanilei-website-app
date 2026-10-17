@@ -32,18 +32,18 @@ export default function PreVisitPage() {
             aria-hidden
           />
           <div className="relative z-[1] mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
               Before you arrive
             </p>
-            <h1 className="font-serif mb-4 text-[clamp(1.6rem,3.5vw,2.4rem)] font-light leading-tight text-[var(--dark)]">
-              Pre-visit <em className="text-[var(--rose-deep)]">form</em>
+            <h1 className="font-serif mb-4 text-[clamp(1.6rem,3.5vw,2.4rem)] font-normal leading-tight text-[var(--dark)]">
+              Pre-visit <em className="text-[var(--text)]">form</em>
             </h1>
             <div className="section-line mx-auto h-px w-[50px] bg-[var(--rose-gold)]" />
-            <p className="mx-auto mt-6 max-w-lg text-[1.25rem] font-light leading-[1.8] text-[var(--text-light)]">
+            <p className="mx-auto mt-6 max-w-lg text-[1.25rem] font-normal leading-[1.8] text-[var(--text-light)]">
               Private link from your booking confirmation.{" "}
               <Link
                 href="/"
-                className="text-[var(--rose-deep)] no-underline hover:underline"
+                className="text-[var(--text)] no-underline hover:underline"
               >
                 Home
               </Link>

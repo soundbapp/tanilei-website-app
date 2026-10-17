@@ -18,11 +18,11 @@ export default function Ticker() {
       <div className="animate-ticker inline-flex">
         {track.map((content, i) =>
           content === "◆" ? (
-            <span key={i} className="px-1.5 text-[var(--rose-deep)]">
+            <span key={i} className="px-1.5 text-white">
               ◆
             </span>
           ) : (
-            <span key={i} className="px-8 text-[1.05rem] uppercase tracking-[0.25em] text-[var(--rose-gold)]">
+            <span key={i} className="px-8 text-[1.05rem] font-medium uppercase tracking-[0.25em] text-white">
               {content}
             </span>
           )

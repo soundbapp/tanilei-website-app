@@ -41,11 +41,11 @@ export default function Services() {
   return (
     <section id="services" className="section-wrap services bg-[var(--cream)] px-5 py-16 md:px-12 md:py-[100px]">
       <div className="section-header mb-10 md:mb-16">
-        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
           What We Offer
         </p>
-        <h2 className="font-serif section-title mb-4 text-[clamp(2.2rem,4.5vw,3.8rem)] font-light leading-tight text-[var(--dark)]">
-          Beauty, <em className="text-[var(--rose-deep)]">Fully Realized</em>
+        <h2 className="font-serif section-title mb-4 text-[clamp(2.2rem,4.5vw,3.8rem)] font-normal leading-tight text-[var(--dark)]">
+          Beauty, <em className="text-[var(--text)]">Fully Realized</em>
         </h2>
         <div className="mx-auto h-px w-[50px] bg-[var(--rose-gold)]" />
       </div>
@@ -63,7 +63,7 @@ export default function Services() {
             <h3 className="svc-name font-serif relative z-[1] mb-3 text-lg font-normal leading-snug md:text-[1.6rem] text-[var(--dark)]">
               {s.name}
             </h3>
-            <p className="svc-desc relative z-[1] text-[1.25rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="svc-desc relative z-[1] text-[1.25rem] font-normal leading-[1.9] text-[var(--text-light)]">
               {s.desc}
             </p>
           </div>

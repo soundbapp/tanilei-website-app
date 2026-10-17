@@ -25,13 +25,13 @@ export default function AppSection() {
   return (
     <section id="app" className="section-wrap app-section bg-white px-5 py-14 md:px-12 md:py-[100px]">
       <div className="section-header mb-10 md:mb-16">
-        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
           The Tani/Lei App
         </p>
-        <h2 className="font-serif section-title mb-4 text-center text-[clamp(1.9rem,7.5vw,2.8rem)] font-light leading-tight text-[var(--dark)]">
+        <h2 className="font-serif section-title mb-4 text-center text-[clamp(1.9rem,7.5vw,2.8rem)] font-normal leading-tight text-[var(--dark)]">
           Beauty Intelligence,
           <br />
-          <em className="text-[var(--rose-deep)]">In Your Pocket</em>
+          <em className="text-[var(--text)]">In Your Pocket</em>
         </h2>
         <div className="mx-auto h-px w-[50px] bg-[var(--rose-gold)]" />
       </div>
@@ -46,7 +46,7 @@ export default function AppSection() {
               <h4 className="font-serif app-feat-name mb-2 text-[1.25rem] text-[var(--dark)]">
                 {f.name}
               </h4>
-              <p className="app-feat-desc text-[1.1rem] font-light leading-[1.9] text-[var(--text-light)]">
+              <p className="app-feat-desc text-[1.1rem] font-normal leading-[1.9] text-[var(--text-light)]">
                 {f.desc}
               </p>
             </div>
@@ -74,7 +74,7 @@ export default function AppSection() {
                 <p className="font-serif phone-cval text-[0.95rem] text-white">Tuesday, Mar 4</p>
               </div>
               <div className="phone-card-light rounded-[10px] bg-[rgba(42,31,26,0.05)] p-3">
-                <p className="phone-clabel text-[0.7rem] uppercase tracking-[0.16em] text-[var(--rose-deep)]">
+                <p className="phone-clabel text-[0.7rem] uppercase tracking-[0.16em] text-[var(--text)]">
                   Kit Status
                 </p>
                 <p className="font-serif phone-cval text-[var(--dark)] text-[0.95rem]">

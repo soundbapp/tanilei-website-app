@@ -9,9 +9,9 @@
   --rose-pale: #f5ede8;
   --rose-deep: #a07060;
   --cream: #faf6f3;
-  --dark: #2a1f1a;
-  --text: #3d2b22;
-  --text-light: #7a5c50;
+  --dark: #000000;
+  --text: #000000;
+  --text-light: #111111;
 }
 
 html {
@@ -22,6 +22,7 @@ body {
   font-family: var(--font-montserrat), sans-serif;
   background: var(--cream);
   color: var(--text);
+  font-weight: 500;
   overflow-x: hidden;
 }
 

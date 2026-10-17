@@ -40,10 +40,10 @@ export default function TaniLoginPage() {
       <main>
         <section className="relative overflow-hidden px-5 pb-20 pt-28 text-center md:px-12 md:pt-32">
           <div className="relative z-[1] mx-auto max-w-md">
-            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
               Staff
             </p>
-            <h1 className="font-serif mb-4 text-[clamp(1.8rem,4.5vw,2.6rem)] font-light text-[var(--dark)]">
+            <h1 className="font-serif mb-4 text-[clamp(1.8rem,4.5vw,2.6rem)] font-normal text-[var(--dark)]">
               Tani, sign in
             </h1>
             <div className="section-line mx-auto h-px w-[50px] bg-[var(--rose-gold)]" />
@@ -58,7 +58,7 @@ export default function TaniLoginPage() {
                 </p>
               )}
               <label className="block">
-                <span className="mb-2 block text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+                <span className="mb-2 block text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
                   Password
                 </span>
                 <input

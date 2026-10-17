@@ -7,13 +7,13 @@ export default function SiteFooter() {
         © 2026 Tani/Lei · Dallas
       </p>
       <p className="text-[1.05rem] tracking-[0.04em] text-[var(--text-light)]">
-        <a href="tel:2025108945" className="text-[var(--rose-deep)] no-underline">
+        <a href="tel:2025108945" className="text-[var(--text)] no-underline">
           202-510-8945
         </a>
         {" · "}
         <a
           href="mailto:hello@tanilei.com"
-          className="text-[var(--rose-deep)] no-underline"
+          className="text-[var(--text)] no-underline"
         >
           hello@tanilei.com
         </a>

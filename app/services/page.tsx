@@ -16,20 +16,20 @@ export default function ServicesPage() {
       <SiteNav />
       <main className="flex flex-1 flex-col px-6 pb-10 pt-24 md:flex-row md:items-start md:gap-16 md:px-12 md:pt-28">
         <div className="md:w-[42%]">
-          <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+          <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
             Services
           </p>
-          <h1 className="font-serif mb-8 text-[clamp(1.8rem,4vw,2.8rem)] font-light text-[var(--dark)]">
+          <h1 className="font-serif mb-8 text-[clamp(1.8rem,4vw,2.8rem)] font-normal text-[var(--dark)]">
             The chair
           </h1>
           <ul className="list-none space-y-3">
             {SERVICE_MENU.map((item) => (
               <li
                 key={item.name}
-                className="flex items-baseline justify-between gap-4 border-b border-[rgba(201,169,154,0.35)] pb-3 text-[1.15rem] leading-snug text-[var(--text)]"
+                className="flex items-baseline justify-between gap-4 border-b border-[rgba(201,169,154,0.35)] pb-3 text-[1.15rem] font-medium leading-snug text-[var(--text)]"
               >
                 <span>{item.name}</span>
-                <span className="w-[11.5rem] shrink-0 text-right text-[1.05rem] text-[var(--rose-deep)]">
+                <span className="w-[11.5rem] shrink-0 text-right text-[1.05rem] text-[var(--text)]">
                   {item.price}
                 </span>
               </li>

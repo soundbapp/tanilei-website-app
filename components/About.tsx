@@ -27,22 +27,22 @@ export default function About() {
           </div>
         </div>
         <div className="about-content">
-          <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)] md:text-left">
+          <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)] md:text-left">
             The Artisan Behind the Brand
           </p>
-          <h2 className="font-serif section-title mb-4 text-left text-[clamp(1.9rem,7.5vw,2.8rem)] font-light leading-tight text-[var(--dark)] md:text-left">
-            Born from the <em className="text-[var(--rose-deep)]">Highest Levels</em>
+          <h2 className="font-serif section-title mb-4 text-left text-[clamp(1.9rem,7.5vw,2.8rem)] font-normal leading-tight text-[var(--dark)] md:text-left">
+            Born from the <em className="text-[var(--text)]">Highest Levels</em>
           </h2>
           <div className="section-line mb-6 md:mb-7 md:mx-0" style={{ width: 50, height: 1, background: "var(--rose-gold)" }} />
-          <p className="font-serif mb-5 text-lg font-light italic leading-[2] text-[var(--text-light)] md:text-[1.25rem]">
+          <p className="font-serif mb-5 text-lg font-normal italic leading-[2] text-[var(--text-light)] md:text-[1.25rem]">
             &ldquo;Beauty is not a service. It is an experience you carry with you long after you leave the chair.&rdquo;
           </p>
-          <p className="mb-9 text-[1.25rem] font-light leading-[2] text-[var(--text-light)]">
+          <p className="mb-9 text-[1.25rem] font-normal leading-[2] text-[var(--text-light)]">
             Tani Abdu built her craft alongside industry icons — including years as assistant to Aaron Grenia at IGK — before bringing that level of excellence to Dallas. With expertise across hair, nails, lashes, brows, and skin, she&apos;s not a stylist. She&apos;s your beauty partner.
           </p>
           <div className="cred-row mb-9 flex flex-wrap gap-6 md:gap-8">
             <div className="cred min-w-[75px] border-t border-[var(--rose-gold)] pt-3">
-              <p className="font-serif cred-num mb-1 text-[1.8rem] font-light text-[var(--dark)]">IGK</p>
+              <p className="font-serif cred-num mb-1 text-[1.8rem] font-normal text-[var(--dark)]">IGK</p>
               <p className="cred-label text-[1rem] uppercase tracking-[0.15em] leading-[1.6] text-[var(--text-light)]">
                 Trained Under
                 <br />
@@ -50,7 +50,7 @@ export default function About() {
               </p>
             </div>
             <div className="cred min-w-[75px] border-t border-[var(--rose-gold)] pt-3">
-              <p className="font-serif cred-num mb-1 text-[1.8rem] font-light text-[var(--dark)]">10+</p>
+              <p className="font-serif cred-num mb-1 text-[1.8rem] font-normal text-[var(--dark)]">10+</p>
               <p className="cred-label text-[1rem] uppercase tracking-[0.15em] leading-[1.6] text-[var(--text-light)]">
                 Years of
                 <br />
@@ -58,7 +58,7 @@ export default function About() {
               </p>
             </div>
             <div className="cred min-w-[75px] border-t border-[var(--rose-gold)] pt-3">
-              <p className="font-serif cred-num mb-1 text-[1.8rem] font-light text-[var(--dark)]">5★</p>
+              <p className="font-serif cred-num mb-1 text-[1.8rem] font-normal text-[var(--dark)]">5★</p>
               <p className="cred-label text-[1rem] uppercase tracking-[0.15em] leading-[1.6] text-[var(--text-light)]">
                 Client
                 <br />

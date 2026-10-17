@@ -13,20 +13,20 @@ export default function Kit() {
     <section id="kit" className="section-wrap kit bg-[var(--rose-pale)] px-5 py-14 md:px-12 md:py-[100px]">
       <div className="kit-inner mx-auto grid max-w-[1100px] grid-cols-1 gap-10 md:grid-cols-2 md:gap-20">
         <div className="kit-content">
-          <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)] md:text-left">
+          <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)] md:text-left">
             The Tani/Lei Kit
           </p>
-          <h2 className="font-serif section-title mb-4 text-left text-[clamp(1.9rem,7.5vw,2.8rem)] font-light leading-tight text-[var(--dark)] md:text-left">
+          <h2 className="font-serif section-title mb-4 text-left text-[clamp(1.9rem,7.5vw,2.8rem)] font-normal leading-tight text-[var(--dark)] md:text-left">
             Your Beauty,
             <br />
-            <em className="text-[var(--rose-deep)]">Delivered Monthly</em>
+            <em className="text-[var(--text)]">Delivered Monthly</em>
           </h2>
           <div className="section-line mb-7 h-px w-[50px] bg-[var(--rose-gold)] md:mx-0" />
           <ul className="kit-features mb-11 list-none">
             {kitFeatures.map((text, i) => (
               <li
                 key={i}
-                className="flex gap-3 border-b border-[rgba(201,169,154,0.28)] py-4 text-[1.25rem] font-light leading-[1.8] text-[var(--text-light)] [&::before]:mt-1.5 [&::before]:shrink-0 [&::before]:content-['◆'] [&::before]:text-[var(--rose-gold)] [&::before]:text-[0.8rem]"
+                className="flex gap-3 border-b border-[rgba(201,169,154,0.28)] py-4 text-[1.25rem] font-normal leading-[1.8] text-[var(--text-light)] [&::before]:mt-1.5 [&::before]:shrink-0 [&::before]:content-['◆'] [&::before]:text-[var(--rose-gold)] [&::before]:text-[0.8rem]"
               >
                 {text}
               </li>

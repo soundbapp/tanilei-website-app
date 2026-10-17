@@ -30,11 +30,11 @@ export default function Experience() {
           <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-gold)]">
             The Full Day
           </p>
-          <h2 className="font-serif section-title mb-4 text-center text-[clamp(1.9rem,7.5vw,2.8rem)] font-light leading-tight text-white">
-            A Day That <em className="text-[var(--rose-deep)]">Transforms</em>
+          <h2 className="font-serif section-title mb-4 text-center text-[clamp(1.9rem,7.5vw,2.8rem)] font-normal leading-tight text-white">
+            A Day That <em className="text-[var(--rose-gold)]">Transforms</em>
           </h2>
           <div className="section-line mx-auto mb-4 h-px w-[50px] bg-[var(--rose-gold)]" />
-          <p className="exp-subtitle mt-4 text-[1.25rem] font-light leading-[2] text-[rgba(255,255,255,0.38)]">
+          <p className="exp-subtitle mt-4 text-[1.25rem] font-normal leading-[2] text-white">
             Come in for one service. Stay for the full ritual. Either way, you leave different.
           </p>
         </div>
@@ -44,13 +44,13 @@ export default function Experience() {
               key={s.num}
               className="exp-step bg-[var(--dark)] p-5 transition-colors duration-300 hover:bg-[#3a2920] md:p-6 lg:p-[46px_26px]"
             >
-              <p className="font-serif exp-num mb-4 text-[3.2rem] font-light leading-none text-[rgba(201,169,154,0.1)]">
+              <p className="font-serif exp-num mb-4 text-[3.2rem] font-normal leading-none text-[rgba(201,169,154,0.1)]">
                 {s.num}
               </p>
-              <h3 className="font-serif exp-name mb-3 text-[1.45rem] text-[var(--rose-light)]">
+              <h3 className="font-serif exp-name mb-3 text-[1.45rem] text-white">
                 {s.name}
               </h3>
-              <p className="exp-desc text-[1.25rem] font-light leading-[1.9] text-[rgba(232,213,204,0.48)]">
+              <p className="exp-desc text-[1.25rem] font-normal leading-[1.9] text-white">
                 {s.desc}
               </p>
             </div>

@@ -44,19 +44,19 @@ export default function Booking() {
     <section id="book" className="booking relative overflow-hidden px-5 py-20 text-center md:px-12 md:py-[100px] md:pb-[120px]">
       <div className="booking-holo holo absolute inset-0 h-full opacity-[0.38]" />
       <div className="booking-inner relative z-[1] mx-auto max-w-[680px]">
-        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
           Begin Your Journey
         </p>
-        <h2 className="font-serif section-title mb-4 text-[clamp(2.2rem,5vw,4.2rem)] font-light leading-tight text-[var(--dark)]">
-          Reserve Your <em className="text-[var(--rose-deep)]">Experience</em>
+        <h2 className="font-serif section-title mb-4 text-[clamp(2.2rem,5vw,4.2rem)] font-normal leading-tight text-[var(--dark)]">
+          Reserve Your <em className="text-[var(--text)]">Experience</em>
         </h2>
         <div className="section-line mx-auto mt-4 h-px w-[50px] bg-[var(--rose-gold)]" />
-        <p className="booking-sub mx-auto mb-4 mt-7 max-w-[440px] text-[1.25rem] font-light leading-[2] text-[var(--text-light)]">
+        <p className="booking-sub mx-auto mb-4 mt-7 max-w-[440px] text-[1.25rem] font-normal leading-[2] text-[var(--text-light)]">
           Join the Tani/Lei family. See Tani&apos;s live calendar below — she is
           booked until a month from today, and not available until November.{" "}
           <Link
             href="/appointments"
-            className="whitespace-nowrap text-[var(--rose-deep)] no-underline hover:underline"
+            className="whitespace-nowrap text-[var(--text)] no-underline hover:underline"
           >
             Schedule a visit
           </Link>{" "}
@@ -66,7 +66,7 @@ export default function Booking() {
           <GuestCalendar interactive={false} />
         </div>
         {submitted ? (
-          <p className="text-[var(--rose-deep)] font-medium">
+          <p className="text-[var(--text)] font-medium">
             Thank you! We&apos;ll be in touch soon.
           </p>
         ) : (
@@ -101,8 +101,8 @@ export default function Booking() {
           </>
         )}
         <p className="booking-note text-[1.05rem] tracking-[0.12em] text-[var(--text-light)]">
-          Call us · <a href="tel:2025108945" className="text-[var(--rose-deep)] no-underline">202-510-8945</a> ·{" "}
-          <a href="mailto:hello@tanilei.com" className="text-[var(--rose-deep)] no-underline">
+          Call us · <a href="tel:2025108945" className="text-[var(--text)] no-underline">202-510-8945</a> ·{" "}
+          <a href="mailto:hello@tanilei.com" className="text-[var(--text)] no-underline">
             hello@tanilei.com
           </a>
         </p>

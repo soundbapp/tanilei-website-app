@@ -159,13 +159,13 @@ export default function TaniCalendarEditor() {
         </p>
       )}
       {message && (
-        <p className="mb-4 text-[1.15rem] text-[var(--rose-deep)]" role="status">
+        <p className="mb-4 text-[1.15rem] text-[var(--text)]" role="status">
           {message}
         </p>
       )}
 
       <label className="mb-6 block">
-        <span className="mb-2 block text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+        <span className="mb-2 block text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
           Booked until (first open day)
         </span>
         <input

@@ -8,7 +8,7 @@ export default function Footer() {
         <span className="font-script footer-logo mb-3 block text-2xl text-white md:text-[2.2rem]">
           Tani/Lei
         </span>
-        <p className="text-[1.15rem] leading-[2.1] tracking-[0.12em] text-[rgba(201,169,154,0.5)]">
+        <p className="text-[1.15rem] leading-[2.1] tracking-[0.12em] text-white">
           The Beauty Experience
           <br />
           Dallas, Texas
@@ -24,22 +24,22 @@ export default function Footer() {
           Services
         </p>
         <ul className="footer-links flex flex-col gap-2.5 list-none">
-          <li><Link href="#" className="text-[1.15rem] font-light text-[rgba(255,255,255,0.42)] no-underline transition-colors hover:text-[var(--rose-light)]">Hair Styling & Treatment</Link></li>
-          <li><Link href="#" className="text-[1.15rem] font-light text-[rgba(255,255,255,0.42)] no-underline transition-colors hover:text-[var(--rose-light)]">Nails</Link></li>
-          <li><Link href="#" className="text-[1.15rem] font-light text-[rgba(255,255,255,0.42)] no-underline transition-colors hover:text-[var(--rose-light)]">Lash Extensions</Link></li>
-          <li><Link href="#" className="text-[1.15rem] font-light text-[rgba(255,255,255,0.42)] no-underline transition-colors hover:text-[var(--rose-light)]">Brow Design</Link></li>
-          <li><Link href="#" className="text-[1.15rem] font-light text-[rgba(255,255,255,0.42)] no-underline transition-colors hover:text-[var(--rose-light)]">Virtual Consultations</Link></li>
-          <li><Link href="#" className="text-[1.15rem] font-light text-[rgba(255,255,255,0.42)] no-underline transition-colors hover:text-[var(--rose-light)]">Beauty Kits</Link></li>
+          <li><Link href="#" className="text-[1.15rem] font-normal text-white no-underline transition-colors hover:text-[var(--rose-light)]">Hair Styling & Treatment</Link></li>
+          <li><Link href="#" className="text-[1.15rem] font-normal text-white no-underline transition-colors hover:text-[var(--rose-light)]">Nails</Link></li>
+          <li><Link href="#" className="text-[1.15rem] font-normal text-white no-underline transition-colors hover:text-[var(--rose-light)]">Lash Extensions</Link></li>
+          <li><Link href="#" className="text-[1.15rem] font-normal text-white no-underline transition-colors hover:text-[var(--rose-light)]">Brow Design</Link></li>
+          <li><Link href="#" className="text-[1.15rem] font-normal text-white no-underline transition-colors hover:text-[var(--rose-light)]">Virtual Consultations</Link></li>
+          <li><Link href="#" className="text-[1.15rem] font-normal text-white no-underline transition-colors hover:text-[var(--rose-light)]">Beauty Kits</Link></li>
         </ul>
       </div>
       <div className="footer-contact">
         <p className="footer-col-title mb-5 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-gold)]">
           Connect
         </p>
-        <p className="text-[1.15rem] font-light leading-[2.2] text-[rgba(255,255,255,0.42)]">
-          <a href="https://tanilei.com" className="text-[var(--rose-gold)] no-underline">tanilei.com</a>
+        <p className="text-[1.15rem] font-normal leading-[2.2] text-white">
+          <a href="https://tanilei.com" className="text-white no-underline">tanilei.com</a>
           <br />
-          <a href="mailto:hello@tanilei.com" className="text-[var(--rose-gold)] no-underline">hello@tanilei.com</a>
+          <a href="mailto:hello@tanilei.com" className="text-white no-underline">hello@tanilei.com</a>
           <br />
           202-510-8945
           <br />
@@ -48,12 +48,12 @@ export default function Footer() {
       </div>
       </footer>
       <div className="footer-bottom flex flex-col items-center justify-between gap-1.5 bg-[#1a100d] px-5 py-4 md:flex-row md:px-12 md:py-[18px]">
-        <p className="text-[1rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.22)]">
+        <p className="text-[1rem] uppercase tracking-[0.15em] text-white">
           © 2026 Tani/Lei · All Rights Reserved
         </p>
-        <p className="text-[1rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.22)]">
+        <p className="text-[1rem] uppercase tracking-[0.15em] text-white">
           Dallas, TX ·{" "}
-          <Link href="/tani" className="text-[rgba(201,169,154,0.55)] no-underline hover:text-[var(--rose-light)]">
+          <Link href="/tani" className="text-white no-underline hover:underline">
             Staff
           </Link>
         </p>

@@ -24,16 +24,16 @@ export default function AboutPage() {
           />
         </div>
         <div className="mx-auto max-w-lg md:mx-0">
-          <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+          <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
             About
           </p>
-          <h1 className="font-serif mb-4 text-[clamp(1.8rem,4vw,2.8rem)] font-light text-[var(--dark)]">
+          <h1 className="font-serif mb-4 text-[clamp(1.8rem,4vw,2.8rem)] font-normal text-[var(--dark)]">
             Tani Abdu
           </h1>
-          <p className="font-serif mb-4 text-[1.45rem] font-light italic leading-[1.8] text-[var(--text)]">
+          <p className="font-serif mb-4 text-[1.45rem] font-normal italic leading-[1.8] text-[var(--text)]">
             Celebrity-trained. Dallas chair.
           </p>
-          <p className="text-[1.25rem] font-light leading-[1.85] text-[var(--text-light)]">
+          <p className="text-[1.25rem] font-medium leading-[1.85] text-[var(--text)]">
             Tani built her craft alongside industry icons — including years as
             assistant to Aaron Grenia at IGK — then brought that standard here.
             Hair, color, wigs, and the consultation that makes the visit yours.

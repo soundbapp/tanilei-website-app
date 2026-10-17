@@ -310,7 +310,7 @@ export default function PreVisitForm() {
   if (!token) {
     return (
       <div className="mx-auto max-w-lg text-center text-[1.25rem] leading-[1.8] text-[var(--text)]">
-        <p className="mb-4 text-[var(--rose-deep)]">
+        <p className="mb-4 text-[var(--text)]">
           This page needs the link from your appointment confirmation email.
         </p>
         <Link
@@ -334,13 +334,13 @@ export default function PreVisitForm() {
   if (loadState === "not_found") {
     return (
       <div className="mx-auto max-w-lg text-center text-[1.25rem] text-[var(--text)]">
-        <p className="mb-4 text-[var(--rose-deep)]">
+        <p className="mb-4 text-[var(--text)]">
           This link is invalid or has expired. If you have an upcoming visit, use
           the latest email from TaniLei, or get in touch.
         </p>
         <a
           href="mailto:hello@tanilei.com"
-          className="text-[var(--rose-deep)] no-underline"
+          className="text-[var(--text)] no-underline"
         >
           hello@tanilei.com
         </a>
@@ -366,7 +366,7 @@ export default function PreVisitForm() {
             setLoadState("loading");
             load();
           }}
-          className="text-[var(--rose-deep)] underline"
+          className="text-[var(--text)] underline"
         >
           Try again
         </button>
@@ -380,7 +380,7 @@ export default function PreVisitForm() {
         <p className="text-[1.15rem] font-medium text-[var(--rose-gold)]" aria-hidden>
           ✦
         </p>
-        <p className="mt-2 font-serif text-[clamp(1.15rem,2.5vw,1.4rem)] font-light italic text-[var(--dark)]">
+        <p className="mt-2 font-serif text-[clamp(1.15rem,2.5vw,1.4rem)] font-normal italic text-[var(--dark)]">
           You&apos;re all set.
         </p>
         <p className="mt-3 text-[1.25rem] leading-[1.9] text-[var(--text-light)]">
@@ -412,7 +412,7 @@ export default function PreVisitForm() {
         <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-gold)]">
           Pre-Appointment Intake
         </p>
-        <h2 className="mt-1.5 font-serif text-[1.4rem] font-light italic leading-tight text-white md:text-[1.5rem]">
+        <h2 className="mt-1.5 font-serif text-[1.4rem] font-normal italic leading-tight text-white md:text-[1.5rem]">
           Tani/Lei
         </h2>
         <p className="mt-1.5 text-[1.05rem] uppercase tracking-[0.18em] text-[var(--rose-light)] opacity-80">
@@ -422,7 +422,7 @@ export default function PreVisitForm() {
 
       <div className="flex flex-col gap-3 border-l-[3px] border-[var(--rose-gold)] bg-[var(--rose-pale)] px-4 py-3.5 sm:flex-row sm:items-center sm:gap-4 md:px-5">
         <div className="min-w-0 flex-1">
-          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--rose-deep)]">
+          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text)]">
             Your appointment
           </p>
           <p className="font-serif text-[1.15rem] text-[var(--dark)]">
@@ -430,7 +430,7 @@ export default function PreVisitForm() {
           </p>
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--rose-deep)]">
+          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text)]">
             Date & time
           </p>
           <p className="font-serif text-[1.15rem] text-[var(--dark)]">
@@ -438,7 +438,7 @@ export default function PreVisitForm() {
           </p>
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--rose-deep)]">
+          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text)]">
             Stylist
           </p>
           <p className="font-serif text-[1.15rem] text-[var(--dark)]">
@@ -462,7 +462,7 @@ export default function PreVisitForm() {
               className={
                 "bg-transparent p-0 text-left " +
                 (i === step
-                  ? "font-medium text-[var(--rose-deep)]"
+                  ? "font-medium text-[var(--text)]"
                   : i < step
                     ? "text-[var(--rose-gold)]"
                     : "text-[var(--text-light)]")
@@ -495,13 +495,13 @@ export default function PreVisitForm() {
       <form onSubmit={handleFormSubmit} className="px-4 pb-10 pt-2 md:px-8">
         {step === 0 && (
           <section>
-            <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+            <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
               Step 1 of 4
             </p>
-            <h3 className="mt-1.5 font-serif text-[1.25rem] font-light italic text-[var(--dark)]">
+            <h3 className="mt-1.5 font-serif text-[1.25rem] font-normal italic text-[var(--dark)]">
               Tell us about yourself
             </h3>
-            <p className="mb-5 mt-1 text-[1.25rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="mb-5 mt-1 text-[1.25rem] font-normal leading-[1.9] text-[var(--text-light)]">
               So Tani can greet you properly and have everything ready before you
               arrive, {m.firstName}.
             </p>
@@ -645,13 +645,13 @@ export default function PreVisitForm() {
 
         {step === 1 && (
           <section>
-            <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+            <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
               Step 2 of 4
             </p>
-            <h3 className="mt-1.5 font-serif text-[1.25rem] font-light italic text-[var(--dark)]">
+            <h3 className="mt-1.5 font-serif text-[1.25rem] font-normal italic text-[var(--dark)]">
               Your hair, your way
             </h3>
-            <p className="mb-5 mt-1 text-[1.25rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="mb-5 mt-1 text-[1.25rem] font-normal leading-[1.9] text-[var(--text-light)]">
               The more Tani knows, the better she can prepare.
             </p>
             <div className="mb-4">
@@ -814,13 +814,13 @@ export default function PreVisitForm() {
 
         {step === 2 && (
           <section>
-            <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+            <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
               Step 3 of 4
             </p>
-            <h3 className="mt-1.5 font-serif text-[1.25rem] font-light italic text-[var(--dark)]">
+            <h3 className="mt-1.5 font-serif text-[1.25rem] font-normal italic text-[var(--dark)]">
               About your visit
             </h3>
-            <p className="mb-5 mt-1 text-[1.25rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="mb-5 mt-1 text-[1.25rem] font-normal leading-[1.9] text-[var(--text-light)]">
               Help Tani understand what you&apos;re coming in for and what you
               want to walk away with. We will go over price, timing, hair health
               and history, what to expect next, and when to rebook.
@@ -1058,13 +1058,13 @@ export default function PreVisitForm() {
 
         {step === 3 && (
           <section>
-            <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+            <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
               Step 4 of 4
             </p>
-            <h3 className="mt-1.5 font-serif text-[1.25rem] font-light italic text-[var(--dark)]">
+            <h3 className="mt-1.5 font-serif text-[1.25rem] font-normal italic text-[var(--dark)]">
               Almost done
             </h3>
-            <p className="mb-5 mt-1 text-[1.25rem] font-light leading-[1.9] text-[var(--text-light)]">
+            <p className="mb-5 mt-1 text-[1.25rem] font-normal leading-[1.9] text-[var(--text-light)]">
               Communication preferences so we can take care of you.
             </p>
             <div className="mb-5">
@@ -1158,8 +1158,8 @@ export default function PreVisitForm() {
                 disabled={saving}
               />
             </div>
-            <div className="mt-5 border-l-[3px] border-[var(--rose-gold)] bg-[var(--rose-pale)] px-4 py-3.5 text-[1.25rem] font-light leading-[1.8] text-[var(--text-light)]">
-              <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-deep)]">
+            <div className="mt-5 border-l-[3px] border-[var(--rose-gold)] bg-[var(--rose-pale)] px-4 py-3.5 text-[1.25rem] font-normal leading-[1.8] text-[var(--text-light)]">
+              <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
                 Your information
               </p>
               <p className="mt-1.5">
