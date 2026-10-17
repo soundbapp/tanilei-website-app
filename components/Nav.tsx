@@ -66,22 +66,22 @@ export default function Nav() {
         </Link>
         <ul className="hidden list-none items-center gap-9 md:flex">
           <li>
-            <Link href="/#services" className="text-[1.1rem] font-semibold uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-colors hover:text-black">
+            <Link href="/#services" className="text-[1.1rem] font-semibold uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-colors hover:text-[var(--text)]">
               Services
             </Link>
           </li>
           <li>
-            <Link href="/#about" className="text-[1.1rem] font-semibold uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-colors hover:text-black">
+            <Link href="/#about" className="text-[1.1rem] font-semibold uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-colors hover:text-[var(--text)]">
               About
             </Link>
           </li>
           <li>
-            <Link href="/#experience" className="text-[1.1rem] font-semibold uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-colors hover:text-black">
+            <Link href="/#experience" className="text-[1.1rem] font-semibold uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-colors hover:text-[var(--text)]">
               Experience
             </Link>
           </li>
           <li>
-            <Link href="/#app" className="text-[1.1rem] font-semibold uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-colors hover:text-black">
+            <Link href="/#app" className="text-[1.1rem] font-semibold uppercase tracking-[0.16em] text-[var(--dark)] no-underline transition-colors hover:text-[var(--text)]">
               The App
             </Link>
           </li>

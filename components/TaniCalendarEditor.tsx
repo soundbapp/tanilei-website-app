@@ -7,6 +7,7 @@ import "react-day-picker/style.css";
 import { format } from "date-fns";
 import { formatInTimeZone, toDate } from "date-fns-tz";
 import {
+  INITIAL_UNAVAILABLE_UNTIL,
   classifyYmd,
   eachYmdInclusive,
   type CalendarState,
@@ -29,7 +30,7 @@ export default function TaniCalendarEditor() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
-  const [unavailableUntil, setUnavailableUntil] = useState("2026-11-10");
+  const [unavailableUntil, setUnavailableUntil] = useState(INITIAL_UNAVAILABLE_UNTIL);
   const [overrides, setOverrides] = useState<Record<string, DayOverrideStatus>>({});
   const [nextLabel, setNextLabel] = useState<string | null>(null);
   const [month, setMonth] = useState(() => new Date());

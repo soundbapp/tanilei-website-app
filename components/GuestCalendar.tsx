@@ -142,9 +142,10 @@ export default function GuestCalendar({
             {loading
               ? "Loading availability…"
               : nextAvailableDate && nextAvailableDate > todayYmd()
-                ? `Tani is booked until ${nextAvailableLabel}. She is not available until ${
-                    nextAvailableDate.slice(5, 7) === "11" ? "November" : nextAvailableLabel
-                  }.`
+                ? `Tani is booked until ${nextAvailableLabel}. She is not available until ${format(
+                    toDate(`${nextAvailableDate}T12:00:00.000`, { timeZone: NY }),
+                    "MMMM"
+                  )}.`
                 : nextAvailableLabel
                   ? `Next opening: ${nextAvailableLabel}.`
                   : "No openings are on the calendar right now."}

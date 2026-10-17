@@ -2,8 +2,8 @@ import { addDays, addMonths } from "date-fns";
 import { formatInTimeZone, toDate } from "date-fns-tz";
 import { BUSINESS_TZ, parseYmd } from "./availability";
 
-/** First day Tani is open again as of this work: exactly one month from 2026-10-10. */
-export const INITIAL_UNAVAILABLE_UNTIL = "2026-11-10";
+/** First day Tani is open again: December 17, 2026. */
+export const INITIAL_UNAVAILABLE_UNTIL = "2026-12-17";
 
 export type DayOverrideStatus = "open" | "closed";
 

@@ -53,7 +53,7 @@ export default function Booking() {
         <div className="section-line mx-auto mt-4 h-px w-[50px] bg-[var(--rose-gold)]" />
         <p className="booking-sub mx-auto mb-4 mt-7 max-w-[440px] text-[1.25rem] font-normal leading-[2] text-[var(--text-light)]">
           Join the Tani/Lei family. See Tani&apos;s live calendar below — she is
-          booked until a month from today, and not available until November.{" "}
+          booked until December 17, 2026, and not available until December.{" "}
           <Link
             href="/appointments"
             className="whitespace-nowrap text-[var(--text)] no-underline hover:underline"

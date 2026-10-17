@@ -21,7 +21,7 @@ export default function Hero() {
           <Link href="/appointments" className="btn-primary inline-flex min-h-12 items-center justify-center whitespace-nowrap border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[1.1rem] uppercase tracking-[0.14em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
             Book Your Experience
           </Link>
-          <Link href="#services" className="btn-ghost flex min-h-12 items-center gap-2 text-[1.1rem] font-semibold uppercase tracking-[0.14em] text-[var(--dark)] [text-shadow:0_1px_3px_rgba(255,255,255,0.8)] no-underline transition-colors hover:text-black md:[text-shadow:none] [&::after]:content-['→'] [&::after]:text-base [&::after]:transition-transform hover:[&::after]:translate-x-1">
+          <Link href="#services" className="btn-ghost flex min-h-12 items-center gap-2 text-[1.1rem] font-semibold uppercase tracking-[0.14em] text-[var(--dark)] [text-shadow:0_1px_3px_rgba(255,255,255,0.8)] no-underline transition-colors hover:text-[var(--text)] md:[text-shadow:none] [&::after]:content-['→'] [&::after]:text-base [&::after]:transition-transform hover:[&::after]:translate-x-1">
             Explore Services
           </Link>
         </div>
