@@ -8,7 +8,7 @@ export default function Footer() {
         <span className="font-script footer-logo mb-3 block text-2xl text-white md:text-[2.2rem]">
           Tani/Lei
         </span>
-        <p className="text-[1.15rem] leading-[2.1] tracking-[0.12em] text-white">
+        <p className="text-[1.05rem] font-normal leading-[1.8] text-white">
           The Beauty Experience
           <br />
           Dallas, Texas
@@ -20,7 +20,7 @@ export default function Footer() {
         </p>
       </div>
       <div>
-        <p className="footer-col-title mb-5 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-gold)]">
+        <p className="footer-col-title mb-5 text-[1.05rem] text-[var(--rose-gold)]">
           Services
         </p>
         <ul className="footer-links flex flex-col gap-2.5 list-none">
@@ -33,7 +33,7 @@ export default function Footer() {
         </ul>
       </div>
       <div className="footer-contact">
-        <p className="footer-col-title mb-5 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-gold)]">
+        <p className="footer-col-title mb-5 text-[1.05rem] text-[var(--rose-gold)]">
           Connect
         </p>
         <p className="text-[1.15rem] font-normal leading-[2.2] text-white">
@@ -48,10 +48,10 @@ export default function Footer() {
       </div>
       </footer>
       <div className="footer-bottom flex flex-col items-center justify-between gap-1.5 bg-[#1a100d] px-5 py-4 md:flex-row md:px-12 md:py-[18px]">
-        <p className="text-[1rem] uppercase tracking-[0.15em] text-white">
+        <p className="text-[0.7rem] font-normal text-white">
           © 2026 Tani/Lei · All Rights Reserved
         </p>
-        <p className="text-[1rem] uppercase tracking-[0.15em] text-white">
+        <p className="text-[0.7rem] font-normal text-white">
           Dallas, TX ·{" "}
           <Link href="/tani" className="text-white no-underline hover:underline">
             Staff

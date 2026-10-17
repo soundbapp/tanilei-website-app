@@ -81,7 +81,7 @@ export default function PhotoUpload({
 
   return (
     <div>
-      <p className="mb-1.5 block text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text-light)]">
+      <p className="mb-1.5 block text-[1.05rem] text-[var(--text-light)]">
         {label}
         {required ? <span className="text-[var(--rose-gold)]"> *</span> : null}
       </p>
@@ -91,7 +91,7 @@ export default function PhotoUpload({
             // eslint-disable-next-line @next/next/no-img-element
             <img src={preview} alt="" className="h-full w-full object-cover" />
           ) : (
-            <span className="flex h-full items-center justify-center px-1 text-center text-[1rem] uppercase tracking-[0.12em] text-[var(--text-light)]">
+            <span className="flex h-full items-center justify-center px-1 text-center text-[1rem] text-[var(--text-light)]">
               No photo
             </span>
           )}
@@ -103,7 +103,7 @@ export default function PhotoUpload({
             accept="image/jpeg,image/png,image/webp,image/*"
             capture="environment"
             disabled={disabled || busy}
-            className="block w-full text-[1.15rem] text-[var(--text)] file:mr-3 file:border-0 file:bg-[var(--dark)] file:px-3 file:py-2 file:text-[1.05rem] file:uppercase file:tracking-[0.16em] file:text-white"
+            className="block w-full text-[1.15rem] text-[var(--text)] file:mr-3 file:border-0 file:bg-[var(--dark)] file:px-3 file:py-2 file:text-[1.05rem] file:font-medium file:text-white"
             onChange={(e) => void onFile(e.target.files?.[0])}
           />
           {busy && (

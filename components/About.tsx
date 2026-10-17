@@ -15,19 +15,19 @@ export default function About() {
             sizes="(max-width: 768px) 75vw, 50vw"
           />
           <div className="about-card absolute bottom-0 right-0 z-[2] w-[55%] border-l-4 border-[var(--rose-gold)] bg-[var(--dark)] p-5 md:p-7">
-            <p className="about-card-label mb-2 text-[1rem] uppercase tracking-[0.14em] text-[var(--rose-gold)]">
+            <p className="about-card-label mb-2 text-[1rem] text-[var(--rose-gold)]">
               Lead Stylist & Founder
             </p>
             <p className="font-script about-card-name mb-1 text-2xl text-white md:text-[1.9rem]">
               Tani Abdu
             </p>
-            <p className="about-card-title text-[1rem] uppercase tracking-[0.14em] text-[var(--rose-light)] opacity-65">
+            <p className="about-card-title text-[1rem] text-[var(--rose-light)] opacity-65">
               Celebrity-Trained · Dallas, TX
             </p>
           </div>
         </div>
         <div className="about-content">
-          <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)] md:text-left">
+          <p className="section-eyebrow mb-4 text-[1.05rem] text-[var(--text)] md:text-left">
             The Artisan Behind the Brand
           </p>
           <h2 className="font-serif section-title mb-4 text-left text-[clamp(1.9rem,7.5vw,2.8rem)] font-normal leading-tight text-[var(--dark)] md:text-left">
@@ -43,7 +43,7 @@ export default function About() {
           <div className="cred-row mb-9 flex flex-wrap gap-6 md:gap-8">
             <div className="cred min-w-[75px] border-t border-[var(--rose-gold)] pt-3">
               <p className="font-serif cred-num mb-1 text-[1.8rem] font-normal text-[var(--dark)]">IGK</p>
-              <p className="cred-label text-[1rem] uppercase tracking-[0.15em] leading-[1.6] text-[var(--text-light)]">
+              <p className="cred-label text-[1rem] leading-[1.6] text-[var(--text-light)]">
                 Trained Under
                 <br />
                 Aaron Grenia
@@ -51,7 +51,7 @@ export default function About() {
             </div>
             <div className="cred min-w-[75px] border-t border-[var(--rose-gold)] pt-3">
               <p className="font-serif cred-num mb-1 text-[1.8rem] font-normal text-[var(--dark)]">10+</p>
-              <p className="cred-label text-[1rem] uppercase tracking-[0.15em] leading-[1.6] text-[var(--text-light)]">
+              <p className="cred-label text-[1rem] leading-[1.6] text-[var(--text-light)]">
                 Years of
                 <br />
                 Experience
@@ -59,14 +59,14 @@ export default function About() {
             </div>
             <div className="cred min-w-[75px] border-t border-[var(--rose-gold)] pt-3">
               <p className="font-serif cred-num mb-1 text-[1.8rem] font-normal text-[var(--dark)]">5★</p>
-              <p className="cred-label text-[1rem] uppercase tracking-[0.15em] leading-[1.6] text-[var(--text-light)]">
+              <p className="cred-label text-[1rem] leading-[1.6] text-[var(--text-light)]">
                 Client
                 <br />
                 Retention
               </p>
             </div>
           </div>
-          <Link href="/appointments" className="btn-primary inline-flex min-h-12 items-center justify-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[1.1rem] uppercase tracking-[0.14em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
+          <Link href="/appointments" className="btn-primary inline-flex min-h-12 items-center justify-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[1.1rem] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
             Meet Tani
           </Link>
         </div>

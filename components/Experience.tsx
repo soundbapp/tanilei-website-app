@@ -27,7 +27,7 @@ export default function Experience() {
       <div className="experience-holo holo absolute right-0 top-0 h-full w-[40%] opacity-[0.07]" />
       <div className="exp-inner relative z-[1] mx-auto max-w-[1100px]">
         <div className="section-header">
-          <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--rose-gold)]">
+          <p className="section-eyebrow mb-4 text-[1.05rem] text-[var(--rose-gold)]">
             The Full Day
           </p>
           <h2 className="font-serif section-title mb-4 text-center text-[clamp(1.9rem,7.5vw,2.8rem)] font-normal leading-tight text-white">

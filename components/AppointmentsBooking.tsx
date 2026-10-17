@@ -114,7 +114,7 @@ export default function AppointmentsBooking() {
         </p>
         <Link
           href="/"
-          className="mt-8 inline-block text-[1.1rem] uppercase tracking-[0.14em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
+          className="mt-8 inline-block text-[1.1rem] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
         >
           ← Home
         </Link>
@@ -168,7 +168,7 @@ export default function AppointmentsBooking() {
           </p>
         ) : (
           <>
-            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+            <p className="mb-3 text-[1.05rem] text-[var(--text)]">
               Choose a time
             </p>
             <div className="mb-6 flex max-h-[200px] flex-wrap gap-2 overflow-y-auto">
@@ -189,7 +189,7 @@ export default function AppointmentsBooking() {
             </div>
             {selectedSlot && (
               <form onSubmit={onSubmit} className="space-y-3">
-                <p className="text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+                <p className="text-[1.05rem] text-[var(--text)]">
                   Your details
                 </p>
                 <select
@@ -242,7 +242,7 @@ export default function AppointmentsBooking() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full min-h-[48px] border-0 bg-[var(--dark)] px-4 py-3 text-[1.05rem] font-medium uppercase tracking-[0.18em] text-white transition-colors hover:bg-[var(--rose-deep)] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="w-full min-h-[48px] border-0 bg-[var(--dark)] px-4 py-3 text-[1.05rem] font-medium text-white transition-colors hover:bg-[var(--rose-deep)] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {submitting ? "Booking…" : "Confirm appointment"}
                 </button>

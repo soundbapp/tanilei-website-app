@@ -13,7 +13,7 @@ export default function Kit() {
     <section id="kit" className="section-wrap kit bg-[var(--rose-pale)] px-5 py-14 md:px-12 md:py-[100px]">
       <div className="kit-inner mx-auto grid max-w-[1100px] grid-cols-1 gap-10 md:grid-cols-2 md:gap-20">
         <div className="kit-content">
-          <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)] md:text-left">
+          <p className="section-eyebrow mb-4 text-[1.05rem] text-[var(--text)] md:text-left">
             The Tani/Lei Kit
           </p>
           <h2 className="font-serif section-title mb-4 text-left text-[clamp(1.9rem,7.5vw,2.8rem)] font-normal leading-tight text-[var(--dark)] md:text-left">
@@ -32,7 +32,7 @@ export default function Kit() {
               </li>
             ))}
           </ul>
-          <Link href="/appointments" className="btn-primary inline-flex min-h-12 items-center justify-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[1.1rem] uppercase tracking-[0.14em] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
+          <Link href="/appointments" className="btn-primary inline-flex min-h-12 items-center justify-center border border-[var(--dark)] bg-[var(--dark)] px-9 py-4 text-[1.1rem] text-white no-underline transition-all hover:bg-transparent hover:text-[var(--dark)]">
             Get Your Kit
           </Link>
         </div>

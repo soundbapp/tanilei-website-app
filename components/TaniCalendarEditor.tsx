@@ -148,7 +148,7 @@ export default function TaniCalendarEditor() {
         <button
           type="button"
           onClick={() => void logout()}
-          className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text-light)] hover:text-[var(--rose-deep)]"
+          className="text-[1.05rem] text-[var(--text-light)] hover:text-[var(--rose-deep)]"
         >
           Log out
         </button>
@@ -166,7 +166,7 @@ export default function TaniCalendarEditor() {
       )}
 
       <label className="mb-6 block">
-        <span className="mb-2 block text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+        <span className="mb-2 block text-[1.05rem] text-[var(--text)]">
           Booked until (first open day)
         </span>
         <input

@@ -25,7 +25,7 @@ export default function AppSection() {
   return (
     <section id="app" className="section-wrap app-section bg-white px-5 py-14 md:px-12 md:py-[100px]">
       <div className="section-header mb-10 md:mb-16">
-        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+        <p className="section-eyebrow mb-4 text-[1.05rem] text-[var(--text)]">
           The Tani/Lei App
         </p>
         <h2 className="font-serif section-title mb-4 text-center text-[clamp(1.9rem,7.5vw,2.8rem)] font-normal leading-tight text-[var(--dark)]">

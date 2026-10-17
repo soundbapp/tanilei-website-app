@@ -15,7 +15,7 @@ export default function TaniCalendarPage() {
       <main>
         <section className="relative overflow-hidden px-5 pb-20 pt-28 text-center md:px-12 md:pt-32">
           <div className="relative z-[1] mx-auto max-w-4xl">
-            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+            <p className="mb-3 text-[1.05rem] text-[var(--text)]">
               Staff
             </p>
             <h1 className="font-serif mb-4 text-[clamp(1.8rem,4.5vw,3rem)] font-normal text-[var(--dark)]">

@@ -32,7 +32,7 @@ export default function PreVisitPage() {
             aria-hidden
           />
           <div className="relative z-[1] mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+            <p className="mb-3 text-[1.05rem] text-[var(--text)]">
               Before you arrive
             </p>
             <h1 className="font-serif mb-4 text-[clamp(1.6rem,3.5vw,2.4rem)] font-normal leading-tight text-[var(--dark)]">

@@ -40,7 +40,7 @@ export default function TaniLoginPage() {
       <main>
         <section className="relative overflow-hidden px-5 pb-20 pt-28 text-center md:px-12 md:pt-32">
           <div className="relative z-[1] mx-auto max-w-md">
-            <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+            <p className="mb-3 text-[1.05rem] text-[var(--text)]">
               Staff
             </p>
             <h1 className="font-serif mb-4 text-[clamp(1.8rem,4.5vw,2.6rem)] font-normal text-[var(--dark)]">
@@ -58,7 +58,7 @@ export default function TaniLoginPage() {
                 </p>
               )}
               <label className="block">
-                <span className="mb-2 block text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+                <span className="mb-2 block text-[1.05rem] text-[var(--text)]">
                   Password
                 </span>
                 <input
@@ -74,7 +74,7 @@ export default function TaniLoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full min-h-[48px] border-0 bg-[var(--dark)] px-4 py-3 text-[1.05rem] font-medium uppercase tracking-[0.18em] text-white transition-colors hover:bg-[var(--rose-deep)] disabled:opacity-70"
+                className="w-full min-h-[48px] border-0 bg-[var(--dark)] px-4 py-3 text-[1.05rem] font-medium text-white transition-colors hover:bg-[var(--rose-deep)] disabled:opacity-70"
               >
                 {loading ? "Signing in…" : "Enter calendar"}
               </button>
@@ -82,7 +82,7 @@ export default function TaniLoginPage() {
             <p className="mt-8">
               <Link
                 href="/"
-                className="text-[1.1rem] uppercase tracking-[0.14em] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
+                className="text-[1.1rem] text-[var(--text-light)] no-underline hover:text-[var(--rose-deep)]"
               >
                 ← Home
               </Link>

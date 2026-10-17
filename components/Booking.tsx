@@ -44,7 +44,7 @@ export default function Booking() {
     <section id="book" className="booking relative overflow-hidden px-5 py-20 text-center md:px-12 md:py-[100px] md:pb-[120px]">
       <div className="booking-holo holo absolute inset-0 h-full opacity-[0.38]" />
       <div className="booking-inner relative z-[1] mx-auto max-w-[680px]">
-        <p className="section-eyebrow mb-4 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+        <p className="section-eyebrow mb-4 text-[1.05rem] text-[var(--text)]">
           Begin Your Journey
         </p>
         <h2 className="font-serif section-title mb-4 text-[clamp(2.2rem,5vw,4.2rem)] font-normal leading-tight text-[var(--dark)]">
@@ -93,14 +93,14 @@ export default function Booking() {
               <button
                 type="submit"
                 disabled={loading}
-                className="booking-btn min-h-[52px] whitespace-nowrap border-0 bg-[var(--dark)] px-5 py-4 font-sans text-[1.05rem] uppercase tracking-[0.18em] text-white transition-colors cursor-pointer hover:bg-[var(--rose-deep)] disabled:opacity-70 disabled:cursor-not-allowed md:py-4"
+                className="booking-btn min-h-[52px] whitespace-nowrap border-0 bg-[var(--dark)] px-5 py-4 font-sans text-[1.05rem] text-white transition-colors cursor-pointer hover:bg-[var(--rose-deep)] disabled:opacity-70 disabled:cursor-not-allowed md:py-4"
               >
                 {loading ? "Sending…" : "Request Access"}
               </button>
             </form>
           </>
         )}
-        <p className="booking-note text-[1.05rem] tracking-[0.12em] text-[var(--text-light)]">
+        <p className="booking-note text-[1.05rem] font-normal text-[var(--text-light)]">
           Call us · <a href="tel:2025108945" className="text-[var(--text)] no-underline">202-510-8945</a> ·{" "}
           <a href="mailto:hello@tanilei.com" className="text-[var(--text)] no-underline">
             hello@tanilei.com

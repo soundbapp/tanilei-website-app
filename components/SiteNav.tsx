@@ -28,8 +28,8 @@ export default function SiteNav() {
             href={l.href}
             className={
               l.href === "/appointments"
-                ? "border border-[var(--dark)] bg-[var(--dark)] px-4 py-2 text-[1.1rem] font-semibold uppercase tracking-[0.12em] text-white no-underline transition-colors hover:bg-[var(--rose-deep)] hover:border-[var(--rose-deep)]"
-                : "text-[1.1rem] font-semibold uppercase tracking-[0.12em] text-[var(--dark)] no-underline transition-colors hover:text-[var(--text)]"
+                ? "border border-[var(--dark)] bg-[var(--dark)] px-4 py-2 text-[1.05rem] font-medium text-white no-underline transition-colors hover:bg-[var(--rose-deep)] hover:border-[var(--rose-deep)]"
+                : "text-[1.05rem] font-medium text-[var(--dark)] no-underline transition-colors hover:text-[var(--text)]"
             }
           >
             {l.label}
@@ -53,7 +53,7 @@ export default function SiteNav() {
             <Link
               key={l.href}
               href={l.href}
-              className="border-b border-[rgba(201,169,154,0.2)] py-4 text-center text-[1.2rem] font-semibold uppercase tracking-[0.14em] text-[var(--dark)] no-underline"
+              className="border-b border-[rgba(201,169,154,0.2)] py-4 text-center text-[1.15rem] font-medium text-[var(--dark)] no-underline"
               onClick={() => setOpen(false)}
             >
               {l.label}

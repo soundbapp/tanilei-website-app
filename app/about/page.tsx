@@ -24,7 +24,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="mx-auto max-w-lg md:mx-0">
-          <p className="mb-3 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--text)]">
+          <p className="mb-3 text-[1.05rem] text-[var(--text)]">
             About
           </p>
           <h1 className="font-serif mb-4 text-[clamp(1.8rem,4vw,2.8rem)] font-normal text-[var(--dark)]">
@@ -33,14 +33,14 @@ export default function AboutPage() {
           <p className="font-serif mb-4 text-[1.45rem] font-normal italic leading-[1.8] text-[var(--text)]">
             Celebrity-trained. Dallas chair.
           </p>
-          <p className="text-[1.25rem] font-medium leading-[1.85] text-[var(--text)]">
+          <p className="text-[1.1rem] font-normal leading-[1.85] text-[var(--text)]">
             Tani built her craft alongside industry icons — including years as
             assistant to Aaron Grenia at IGK — then brought that standard here.
             Hair, color, wigs, and the consultation that makes the visit yours.
           </p>
           <Link
             href="/appointments"
-            className="mt-8 inline-flex min-h-12 items-center border border-[var(--dark)] bg-[var(--dark)] px-8 py-3 text-[1.1rem] uppercase tracking-[0.16em] text-white no-underline hover:bg-transparent hover:text-[var(--dark)]"
+            className="mt-8 inline-flex min-h-12 items-center border border-[var(--dark)] bg-[var(--dark)] px-8 py-3 text-[1.1rem] text-white no-underline hover:bg-transparent hover:text-[var(--dark)]"
           >
             Book a consultation
           </Link>

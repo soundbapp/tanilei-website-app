@@ -135,10 +135,10 @@ export default function GuestCalendar({
     <div className="w-full">
       {(nextAvailableLabel || loading) && (
         <div className="mb-5 border border-[rgba(201,169,154,0.45)] bg-white/80 px-4 py-3 text-center">
-          <p className="text-[1.05rem] uppercase tracking-[0.18em] text-[var(--text)]">
+          <p className="text-[1.05rem] text-[var(--text)]">
             Tani&apos;s calendar
           </p>
-          <p className="mt-2 text-[1.25rem] leading-[1.7] text-[var(--text)]">
+          <p className="mt-2 text-[1.1rem] font-normal leading-[1.7] text-[var(--text)]">
             {loading
               ? "Loading availability…"
               : nextAvailableDate && nextAvailableDate > todayYmd()
@@ -154,7 +154,7 @@ export default function GuestCalendar({
             <button
               type="button"
               onClick={goToNextOpen}
-              className="mt-3 border border-[var(--rose-gold)] bg-transparent px-4 py-2 text-[1.05rem] uppercase tracking-[0.14em] text-[var(--dark)] transition-colors hover:bg-[var(--rose-gold)] hover:text-white"
+              className="mt-3 border border-[var(--rose-gold)] bg-transparent px-4 py-2 text-[1.05rem] text-[var(--dark)] transition-colors hover:bg-[var(--rose-gold)] hover:text-white"
             >
               Show {format(toDate(`${nextAvailableDate}T12:00:00.000`, { timeZone: NY }), "MMMM")}
             </button>
@@ -187,7 +187,7 @@ export default function GuestCalendar({
         />
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-[1.05rem] uppercase tracking-[0.12em] text-[var(--text-light)]">
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-[1.05rem] text-[var(--text-light)]">
         <span className="inline-flex items-center gap-2">
           <span className="inline-block h-3 w-3 border border-[var(--rose-gold)] bg-[#f3e2da]" />
           Booked
